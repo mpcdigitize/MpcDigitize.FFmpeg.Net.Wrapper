@@ -11,7 +11,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
     /// <summary>
     ///     Contains Streaming methods
     /// </summary>
-    public partial class CliEncoder
+    public partial class Ffmpeg
     {
 
        

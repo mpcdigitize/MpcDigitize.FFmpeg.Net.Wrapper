@@ -13,8 +13,8 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
-            var arguments = new EncodingArgumentsDictionary();
-            var ffmpeg = new CliEncoder(@"C:\ffmpeg\ffmpeg.exe", arguments);
+            var arguments = new FfmpegArgumentsDictionary();
+            var ffmpeg = new Ffmpeg(@"C:\ffmpeg\ffmpeg.exe", arguments);
           //  string inputFile = @"C:\input\testmp4.mp4";
             //string outputFile = @"C:\output\testmp3_2.mp3";
 

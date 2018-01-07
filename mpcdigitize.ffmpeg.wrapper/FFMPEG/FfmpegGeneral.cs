@@ -12,13 +12,13 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
     /// <summary>
     ///     Contains file access methods    
     /// </summary>
-    public partial class CliEncoder
+    public partial class Ffmpeg
     {
 
         private string _programmPath;
-        private EncodingArgumentsDictionary _arguments;
+        private FfmpegArgumentsDictionary _arguments;
 
-        public CliEncoder(string programmPath, EncodingArgumentsDictionary arguments)
+        public Ffmpeg(string programmPath, FfmpegArgumentsDictionary arguments)
         {
             _programmPath = programmPath;
             _arguments = arguments;

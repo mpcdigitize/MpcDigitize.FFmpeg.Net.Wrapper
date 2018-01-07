@@ -12,7 +12,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
     /// <summary>
     ///     Contains Video conversion methods
     /// </summary>
-    public partial class CliEncoder
+    public partial class Ffmpeg
     {
 
       

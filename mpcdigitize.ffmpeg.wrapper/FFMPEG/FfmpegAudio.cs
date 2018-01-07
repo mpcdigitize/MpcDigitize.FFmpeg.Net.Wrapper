@@ -12,7 +12,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
     /// <summary>
     ///     Contains Audio conversion methods
     /// </summary>
-    public partial class CliEncoder
+    public partial class Ffmpeg
     {
 
 

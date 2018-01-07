@@ -45,7 +45,7 @@
     <Compile Include="FFMPEG\FfmpegGeneral.cs" />
     <Compile Include="FFMPEG\FfmpegStream.cs" />
     <Compile Include="FFMPEG\FfmpegVideo.cs" />
-    <Compile Include="EncodingArgumentsDictionary.cs" />
+    <Compile Include="FfmpegArgumentsDictionary.cs" />
     <Compile Include="EncodingEngine.cs" />
     <Compile Include="Enums\AudioCodec.cs" />
     <Compile Include="Enums\AudioEncoder.cs" />

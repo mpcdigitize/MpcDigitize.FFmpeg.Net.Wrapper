@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Mpcdigitize.Ffmpeg.Wrapper
 {
-    public class EncodingArgumentsDictionary
+    public class FfmpegArgumentsDictionary
     {
 
         private Dictionary<string, string> _arguments;
 
-        public EncodingArgumentsDictionary()
+        public FfmpegArgumentsDictionary()
         {
             _arguments = new Dictionary<string, string>();
 
