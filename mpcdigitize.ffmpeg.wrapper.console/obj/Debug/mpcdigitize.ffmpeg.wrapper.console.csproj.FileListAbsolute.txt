@@ -1,0 +1,1 @@
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.console.exe.config
