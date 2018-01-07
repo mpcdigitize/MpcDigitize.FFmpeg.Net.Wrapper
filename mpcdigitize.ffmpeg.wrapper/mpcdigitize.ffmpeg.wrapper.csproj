@@ -41,10 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioProfile.cs" />
-    <Compile Include="Cli\CliEncoderAudio.cs" />
-    <Compile Include="Cli\CliEncoderGeneral.cs" />
-    <Compile Include="Cli\CliEncoderStream.cs" />
-    <Compile Include="Cli\CliEncoderVideo.cs" />
+    <Compile Include="FFMPEG\FfmpegAudio.cs" />
+    <Compile Include="FFMPEG\FfmpegGeneral.cs" />
+    <Compile Include="FFMPEG\FfmpegStream.cs" />
+    <Compile Include="FFMPEG\FfmpegVideo.cs" />
     <Compile Include="EncodingArgumentsDictionary.cs" />
     <Compile Include="EncodingEngine.cs" />
     <Compile Include="Enums\AudioCodec.cs" />

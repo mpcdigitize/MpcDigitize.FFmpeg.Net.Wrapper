@@ -15,12 +15,12 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
     public partial class CliEncoder
     {
 
-        private string _encoderPath;
+        private string _programmPath;
         private EncodingArgumentsDictionary _arguments;
 
-        public CliEncoder(string encoderPath, EncodingArgumentsDictionary arguments)
+        public CliEncoder(string programmPath, EncodingArgumentsDictionary arguments)
         {
-            _encoderPath = encoderPath;
+            _programmPath = programmPath;
             _arguments = arguments;
         }
 
@@ -40,37 +40,12 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
             Console.WriteLine(arguments);
 
-            encodingEngine.StartEncoding(arguments, _encoderPath);
+            encodingEngine.StartEncoding(arguments, _programmPath);
 
         }
 
 
-        /// <summary>
-        ///     Using FFPROBE
-        /// </summary>
-        /// <param name="inputFile"></param>
-        public void GetInfo(string inputFile)
-        {
-
-
-            var encodingEngine = new EncodingEngine();
-            var ffprobe = @"C:\ffmpeg\ffprobe.exe";
-
-            //ffprobe -v quiet -print_format json -show_format -show_streams "lolwut.mp4" > "lolwut.mp4.json"
-            //ffprobe -show_streams -select_streams a INPUT
-
-           // var arguments = " -v quiet -print_format json -show_format -show_streams " + inputFile ;
-            var arguments = " -v quiet -print_format xml -show_format -show_streams " + inputFile;
-
-
-
-            Console.WriteLine(arguments);
-
-            //encodingEngine.StartEncoding(arguments, ffprobe);
-            encodingEngine.StartProcess(arguments, ffprobe);
-
-        }
-
+  
 
         public void SaveMetadata(string inputFile, string outputFile)
         {
@@ -85,7 +60,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
             Console.WriteLine(arguments);
 
-            encodingEngine.StartEncoding(arguments, _encoderPath);
+            encodingEngine.StartEncoding(arguments, _programmPath);
 
         }
 

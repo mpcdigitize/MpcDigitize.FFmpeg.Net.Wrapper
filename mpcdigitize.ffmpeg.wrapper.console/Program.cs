@@ -1,4 +1,5 @@
 ﻿using Mpcdigitize.Ffmpeg.Wrapper;
+using Mpcdigitize.Ffmpeg.Wrapper.Enums;
 using System;
 
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    public class Program_old
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -24,9 +25,9 @@ namespace ConsoleApplication
 
 
             string vinput = @"C:\input\testWTVShort.wtv";
-            string voutput = @"C:\videos\testConvert_3.mkv";
+            string voutput = @"C:\videos\testConvert_4.mkv";
 
-            string metadataFile = @"C:\output\metadata1.txt";
+            string metadataFile = @"C:\output\metadata2.txt";
 
 
             string streamMP3 = @"http://stream3.polskieradio.pl:8904/;stream";
@@ -41,13 +42,13 @@ namespace ConsoleApplication
             Console.WriteLine("Starting");
             //ffmpeg.ConvertAudio(inputFile, AudioCodec.libfdk_aac, Bitrate.high, outputFile);
             //ffmpeg.ExtractVideoFrame(vid_input, seconds, FrameSize.thumbnail, vid_output);
-           // ffmpeg.ConvertVideo(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
+            ffmpeg.ConvertVideo(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
             //ffmpeg.SaveStream(streamMP3, saveStream);
             // ffmpeg.ConvertAudio(streamPR3, AudioEncoder.Libmp3lame, Bitrate.BitrateNormal, saveStream);
 
             // ffmpeg.SaveStreamCopy(streamLBC2, saveStream);
 
-            ffmpeg.SaveMetadata(streamLBC2, metadataFile);
+           // ffmpeg.SaveMetadata(streamLBC2, metadataFile);
 
         // ffmpeg.GetInfo(vid_input);
 
