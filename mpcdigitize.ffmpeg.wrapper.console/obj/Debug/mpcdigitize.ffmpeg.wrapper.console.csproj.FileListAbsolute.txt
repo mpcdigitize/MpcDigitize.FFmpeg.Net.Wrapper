@@ -1,1 +1,8 @@
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.console.exe.config
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.console.exe
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.console.pdb
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.dll
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.pdb
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\obj\Debug\mpcdigitize.ffmpeg.wrapper.console.csprojResolveAssemblyReference.cache
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\obj\Debug\mpcdigitize.ffmpeg.wrapper.console.exe
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\obj\Debug\mpcdigitize.ffmpeg.wrapper.console.pdb

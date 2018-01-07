@@ -1,0 +1,4 @@
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\mpcdigitize.ffmpeg.wrapper.dll
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\mpcdigitize.ffmpeg.wrapper.pdb
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\mpcdigitize.ffmpeg.wrapper.dll
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\mpcdigitize.ffmpeg.wrapper.pdb

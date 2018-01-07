@@ -40,7 +40,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioProfile.cs" />
+    <Compile Include="Cli\CliEncoderAudio.cs" />
+    <Compile Include="Cli\CliEncoderGeneral.cs" />
+    <Compile Include="Cli\CliEncoderStream.cs" />
+    <Compile Include="Cli\CliEncoderVideo.cs" />
+    <Compile Include="EncodingArgumentsDictionary.cs" />
+    <Compile Include="EncodingEngine.cs" />
+    <Compile Include="Enums\AudioCodec.cs" />
+    <Compile Include="Enums\AudioEncoder.cs" />
+    <Compile Include="Enums\AudioFormat.cs" />
+    <Compile Include="Enums\Bitrate.cs" />
+    <Compile Include="Enums\FrameSize.cs" />
+    <Compile Include="Enums\VideoConstantRateFactor.cs" />
+    <Compile Include="Enums\VideoEncoder.cs" />
+    <Compile Include="Enums\VideoFormat.cs" />
+    <Compile Include="Enums\VideoPreset.cs" />
+    <Compile Include="Enums\VideoResize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VideoProfile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

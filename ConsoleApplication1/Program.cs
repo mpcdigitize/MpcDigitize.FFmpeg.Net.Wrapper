@@ -1,20 +1,19 @@
-﻿using FfmpegWrapper;
-using FfmpegWrapper.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WrapperConsole
+namespace ConsoleApplication
 {
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
+
             var arguments = new EncodingArgumentsDictionary();
             var ffmpeg = new CliEncoder(@"C:\ffmpeg\ffmpeg.exe", arguments);
-          //  string inputFile = @"C:\input\testmp4.mp4";
+            //  string inputFile = @"C:\input\testmp4.mp4";
             //string outputFile = @"C:\output\testmp3_2.mp3";
 
 
@@ -41,7 +40,7 @@ namespace WrapperConsole
             Console.WriteLine("Starting");
             //ffmpeg.ConvertAudio(inputFile, AudioCodec.libfdk_aac, Bitrate.high, outputFile);
             //ffmpeg.ExtractVideoFrame(vid_input, seconds, FrameSize.thumbnail, vid_output);
-           // ffmpeg.ConvertVideo(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
+            // ffmpeg.ConvertVideo(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
             //ffmpeg.SaveStream(streamMP3, saveStream);
             // ffmpeg.ConvertAudio(streamPR3, AudioEncoder.Libmp3lame, Bitrate.BitrateNormal, saveStream);
 
@@ -49,7 +48,7 @@ namespace WrapperConsole
 
             ffmpeg.SaveMetadata(streamLBC2, metadataFile);
 
-        // ffmpeg.GetInfo(vid_input);
+            // ffmpeg.GetInfo(vid_input);
 
             Console.WriteLine("Completed");
             Console.ReadLine();

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FfmpegWrapper.Enums
+namespace Mpcdigitize.Ffmpeg.Wrapper.Enums
 {
 
     public enum Bitrate
