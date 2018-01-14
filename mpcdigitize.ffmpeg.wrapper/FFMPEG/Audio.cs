@@ -1,4 +1,5 @@
 ﻿using Mpcdigitize.Ffmpeg.Wrapper;
+using Mpcdigitize.Ffmpeg.Wrapper.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +19,18 @@ namespace mpcdigitize.ffmpeg.wrapper
 
         }
 
-        public void DoSomething()
+        public void Convert(string inputFile, AudioEncoder audioEncoder, Bitrate audioBitrate, string outputFile)
         {
+            var encodingEngine = new EncodingEngine();
 
-            Console.WriteLine(Ffmpeg.GetPath());
+            var arguments = "-i " + inputFile +
+                            _arguments.GetValue(audioEncoder.ToString()) +
+                            _arguments.GetValue(audioBitrate.ToString()) +
+                            outputFile;
 
-                        //  Console.WriteLine("DoSomething " + ffmpeg.GetPath());
+            Console.WriteLine(arguments);
 
+            encodingEngine.StartEncoding(arguments, Ffmpeg.GetPath());
 
 
         }
