@@ -5,39 +5,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using mpcdigitize.ffmpeg.wrapper;
 
 namespace Mpcdigitize.Ffmpeg.Wrapper
 {
     public class EncodingEngine
     {
 
+        public JobStatus JobStatus { get; set; }
         public double Progress { get; set; }
 
-        public void StartEncoding(string arguments, string encoderPath)
+        public EncodingEngine()
         {
-            var process = new Process();
 
-            process.StartInfo.Arguments = arguments;
-            process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-            process.StartInfo.FileName = encoderPath;
+           
+        }
 
 
-           // process.StartInfo.RedirectStandardOutput = true;
-            //process.StartInfo.UseShellExecute = false;
-            //string output = process.StandardOutput.ReadToEnd();
 
-            process.Start();
-            process.WaitForExit();
+        //public void StartEncoding(string arguments, string encoderPath)
+        //{
+        //    var process = new Process();
+
+        //    process.StartInfo.Arguments = arguments;
+        //    process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+        //    process.StartInfo.FileName = encoderPath;
+
+
+        //   // process.StartInfo.RedirectStandardOutput = true;
+        //    //process.StartInfo.UseShellExecute = false;
+        //    //string output = process.StandardOutput.ReadToEnd();
+
+        //    process.Start();
+        //    process.WaitForExit();
 
             
-            //startInfo.CreateNoWindow = true;
+        //    //startInfo.CreateNoWindow = true;
            
 
-            //Console.WriteLine(output);
+        //    //Console.WriteLine(output);
 
 
 
-        }
+        //}
 
 
 
@@ -48,6 +58,8 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         /// <param name="encoderPath"></param>
         public void StartProcess(string arguments, string encoderPath)
         {
+            JobStatus = new JobStatus();
+
             var start = new ProcessStartInfo();
             start.Arguments = arguments;
             start.FileName = encoderPath;
@@ -58,20 +70,29 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
             // Start the process.
             //
 
-          
+        
+    
+
+
             using (Process process = Process.Start(start))
             {
                 //process.BeginOutputReadLine();
                 //process.BeginOutputReadLine();
+               // string some = process.StandardError.ReadToEnd();
 
+                
                 // Read in all the text from the process with the StreamReader.
                 //
                 using (StreamReader reader = process.StandardError)
                 {
+                    
+
                     while (!reader.EndOfStream)
                     {
                        Processed(reader.ReadLine());
-                      // Console.Write(reader.ReadLine());
+                        //JobStatus.ConsoleOutput = reader.ReadLine();
+
+                      Console.Write(reader.ReadLine());
                     }
 
                   //  string result = reader.ReadToEnd();
@@ -80,7 +101,9 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
                    // Console.WriteLine("Progress:" + process.StandardError);
                 }
 
-            
+
+               // Console.Write(some);
+
             }
 
 

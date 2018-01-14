@@ -21,21 +21,21 @@ namespace ConsoleApplication
             //  string inputFile = @"C:\input\testmp4.mp4";
             //string outputFile = @"C:\output\testmp3_2.mp3";
 
-            ffmpeg.Audio.DoSomething();
-            ffmpeg.Video.DoSomething();
+           // ffmpeg.Audio.Convert();
+            //ffmpeg.Video.Convert();
       
 
 
             
 
 
-        //    string vid_input = @"C:\input\testWTV.wtv";
-        //    string vid_output = @"C:\frames\frame_14.jpg";
+      string vid_input = @"C:\input\testWTV.wtv";
+            string vid_output = @"C:\frames\frame_14.jpg";
         //    int seconds = 100;
 
 
-        //    string vinput = @"C:\input\testWTVShort.wtv";
-        //    string voutput = @"C:\videos\testConvert_5.mkv";
+  string vinput = @"C:\input\testWTVShort.wtv";
+           string voutput = @"C:\videos\testConvert_4.mkv";
 
         //    string metadataFile = @"C:\output\metadata2.txt";
 
@@ -52,17 +52,20 @@ namespace ConsoleApplication
         //    Console.WriteLine("Starting");
         //    //ffmpeg.ConvertAudio(inputFile, AudioCodec.libfdk_aac, Bitrate.high, outputFile);
         //    //ffmpeg.ExtractVideoFrame(vid_input, seconds, FrameSize.thumbnail, vid_output);
-        //    ffmpeg.ConvertVideo(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
-        //    //ffmpeg.SaveStream(streamMP3, saveStream);
-        //    // ffmpeg.ConvertAudio(streamPR3, AudioEncoder.Libmp3lame, Bitrate.BitrateNormal, saveStream);
+        ffmpeg.Video.Convert(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
+            //    //ffmpeg.SaveStream(streamMP3, saveStream);
+            //    // ffmpeg.ConvertAudio(streamPR3, AudioEncoder.Libmp3lame, Bitrate.BitrateNormal, saveStream);
 
-        //    // ffmpeg.SaveStreamCopy(streamLBC2, saveStream);
+            //    // ffmpeg.SaveStreamCopy(streamLBC2, saveStream);
 
-        //   // ffmpeg.SaveMetadata(streamLBC2, metadataFile);
+            //   // ffmpeg.SaveMetadata(streamLBC2, metadataFile);
 
-        //// ffmpeg.GetInfo(vid_input);
+            //// ffmpeg.GetInfo(vid_input);
 
-        //    Console.WriteLine("Completed");
+            
+
+            Console.WriteLine(ffmpeg.JobStatus.ConsoleOutput);
+            Console.WriteLine("Completed");
             Console.ReadLine();
 
             

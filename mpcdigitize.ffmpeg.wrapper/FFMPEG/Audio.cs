@@ -30,7 +30,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 
             Console.WriteLine(arguments);
 
-            encodingEngine.StartEncoding(arguments, Ffmpeg.GetPath());
+      //   encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
 
 
         }

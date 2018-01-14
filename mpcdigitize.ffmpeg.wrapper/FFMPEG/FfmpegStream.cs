@@ -26,7 +26,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
             Console.WriteLine(arguments);
 
-            encodingEngine.StartEncoding(arguments, _programmPath);
+          //  encodingEngine.StartEncoding(arguments, _programmPath);
 
 
 
@@ -45,7 +45,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
             Console.WriteLine(arguments);
 
-            encodingEngine.StartEncoding(arguments, _programmPath);
+        //    encodingEngine.StartEncoding(arguments, _programmPath);
 
 
 

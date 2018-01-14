@@ -59,6 +59,7 @@
     <Compile Include="Enums\VideoFormat.cs" />
     <Compile Include="Enums\VideoPreset.cs" />
     <Compile Include="Enums\VideoResize.cs" />
+    <Compile Include="FFMPEG\JobStatus.cs" />
     <Compile Include="FFMPEG\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VideoProfile.cs" />

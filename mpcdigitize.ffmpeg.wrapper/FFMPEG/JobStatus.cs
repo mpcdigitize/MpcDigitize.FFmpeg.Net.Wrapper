@@ -9,7 +9,7 @@ namespace mpcdigitize.ffmpeg.wrapper
     public class JobStatus
     {
         public Double Duration { get; set;}
-        public string Name { get; set; }
+        public string ConsoleOutput { get; set; }
 
 
     }
