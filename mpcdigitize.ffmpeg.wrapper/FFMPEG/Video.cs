@@ -12,6 +12,7 @@ namespace mpcdigitize.ffmpeg.wrapper
     {
         public Ffmpeg Ffmpeg { get; set; }
         private FfmpegArgumentsDictionary _arguments;
+        public string mconsole;
 
         public Video()
         {
@@ -20,7 +21,7 @@ namespace mpcdigitize.ffmpeg.wrapper
         }
 
 
-        public void Convert(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, Bitrate audioBitrate, string outputFile)
+        public void Convert1(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, Bitrate audioBitrate, string outputFile)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
@@ -37,15 +38,17 @@ namespace mpcdigitize.ffmpeg.wrapper
                             outputFile;
 
 
-            Console.WriteLine(arguments);
+            // Console.WriteLine(arguments);
 
-            // encodingEngine.StartEncoding(arguments, _programmPath);
-            encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
+
+            encodingEngine.LaunchProcess(arguments, Ffmpeg.GetPath());
+            // encodingEngine.StartEncoding(arguments, Ffmpeg.GetPath());
+           // encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
 
 
         }
 
-        public void Convert(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, string outputFile)
+        public void Convert2(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, string outputFile)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
@@ -60,10 +63,12 @@ namespace mpcdigitize.ffmpeg.wrapper
                             _arguments.GetValue(audioCodec.ToString()) +
                             outputFile;
 
-            Console.WriteLine(arguments);
+            //  Console.WriteLine(arguments);
 
-            //encodingEngine.StartEncoding(arguments, _programmPath);
-            encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
+            encodingEngine.LaunchProcess(arguments, Ffmpeg.GetPath());
+           Console.WriteLine(encodingEngine.ConsoleOutput);
+            //encodingEngine.StartEncoding(arguments, Ffmpeg.GetPath());
+            //encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
 
 
         }

@@ -35,7 +35,7 @@ namespace ConsoleApplication
 
 
   string vinput = @"C:\input\testWTVShort.wtv";
-           string voutput = @"C:\videos\testConvert_4.mkv";
+           string voutput = @"C:\videos\testConvert_12.mkv";
 
         //    string metadataFile = @"C:\output\metadata2.txt";
 
@@ -52,7 +52,7 @@ namespace ConsoleApplication
         //    Console.WriteLine("Starting");
         //    //ffmpeg.ConvertAudio(inputFile, AudioCodec.libfdk_aac, Bitrate.high, outputFile);
         //    //ffmpeg.ExtractVideoFrame(vid_input, seconds, FrameSize.thumbnail, vid_output);
-        ffmpeg.Video.Convert(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
+        ffmpeg.Video.Convert2(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
             //    //ffmpeg.SaveStream(streamMP3, saveStream);
             //    // ffmpeg.ConvertAudio(streamPR3, AudioEncoder.Libmp3lame, Bitrate.BitrateNormal, saveStream);
 
@@ -64,7 +64,7 @@ namespace ConsoleApplication
 
             
 
-            Console.WriteLine(ffmpeg.JobStatus.ConsoleOutput);
+            Console.WriteLine(ffmpeg.Video.mconsole);
             Console.WriteLine("Completed");
             Console.ReadLine();
 

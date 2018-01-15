@@ -12,42 +12,88 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
     public class EncodingEngine
     {
 
-        public JobStatus JobStatus { get; set; }
+       // public JobStatus JobStatus = new JobStatus();
         public double Progress { get; set; }
+        Process process = new Process();
 
-        public EncodingEngine()
+        public string ConsoleOutput;
+
+        public void LaunchProcess(string arguments, string encoderPath)
         {
 
-           
+            process.EnableRaisingEvents = true;
+            process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_OutputDataReceived);
+            process.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_ErrorDataReceived);
+            process.Exited += new System.EventHandler(process_Exited);
+
+            process.StartInfo.FileName = encoderPath;
+            process.StartInfo.Arguments = arguments;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.RedirectStandardOutput = true;
+
+            process.Start();
+            process.BeginErrorReadLine();
+            process.BeginOutputReadLine();
+
+            //below line is optional if we want a blocking call
+            //process.WaitForExit();
+        }
+
+        public void process_Exited(object sender, EventArgs e)
+        {
+          //  Console.WriteLine(string.Format("process exited with code {0}\n", process.ExitCode.ToString()));
+        }
+
+        public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
+        {
+
+          ConsoleOutput = e.Data;
+            //  Console.WriteLine(e.Data + "\n");
+
+            //Console.WriteLine(ConsoleOutput);
+        }
+
+        public void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+           // Console.WriteLine(e.Data + "\n");
         }
 
 
 
-        //public void StartEncoding(string arguments, string encoderPath)
-        //{
-        //    var process = new Process();
-
-        //    process.StartInfo.Arguments = arguments;
-        //    process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
-        //    process.StartInfo.FileName = encoderPath;
 
 
-        //   // process.StartInfo.RedirectStandardOutput = true;
-        //    //process.StartInfo.UseShellExecute = false;
-        //    //string output = process.StandardOutput.ReadToEnd();
 
-        //    process.Start();
-        //    process.WaitForExit();
+        public void StartEncoding(string arguments, string encoderPath)
+        {
+            var process = new Process();
 
+            process.StartInfo.Arguments = arguments;
+            process.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+            process.StartInfo.FileName = encoderPath;
+
+            //redirects to Console window
             
-        //    //startInfo.CreateNoWindow = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.UseShellExecute = false;
+
+           
+            process.Start();
            
 
-        //    //Console.WriteLine(output);
+            Console.WriteLine(process.StandardOutput.ReadToEnd());
+
+            process.WaitForExit();
+
+
+            //startInfo.CreateNoWindow = true;
+
+
+            //Console.WriteLine(output);
 
 
 
-        //}
+        }
 
 
 
@@ -58,7 +104,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         /// <param name="encoderPath"></param>
         public void StartProcess(string arguments, string encoderPath)
         {
-            JobStatus = new JobStatus();
+          
 
             var start = new ProcessStartInfo();
             start.Arguments = arguments;

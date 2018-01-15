@@ -34,10 +34,10 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
                             outputFile;
 
 
-            Console.WriteLine(arguments);
+           
 
-           // encodingEngine.StartEncoding(arguments, _programmPath);
-            encodingEngine.StartProcess(arguments, _programmPath);
+            encodingEngine.StartEncoding(arguments, _programmPath);
+           // encodingEngine.StartProcess(arguments, _programmPath);
 
 
         }
@@ -57,10 +57,10 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
                             _arguments.GetValue(audioCodec.ToString()) +
                             outputFile;
 
-            Console.WriteLine(arguments);
+          
 
-            //encodingEngine.StartEncoding(arguments, _programmPath);
-            encodingEngine.StartProcess(arguments, _programmPath);
+            encodingEngine.StartEncoding(arguments, _programmPath);
+            //encodingEngine.StartProcess(arguments, _programmPath);
 
 
         }
