@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mpcdigitize.Ffmpeg.Wrapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,13 @@ namespace mpcdigitize.ffmpeg.wrapper
     {
         public Double Duration { get; set;}
         public string ConsoleOutput { get; set; }
+        public EncodingEngine EncodingEngine { get; set;}
+
+        public JobStatus(EncodingEngine encodingEngine)
+        {
+            EncodingEngine = encodingEngine;
+
+        }
 
 
     }

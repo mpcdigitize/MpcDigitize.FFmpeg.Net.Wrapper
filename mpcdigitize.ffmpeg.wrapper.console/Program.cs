@@ -35,7 +35,7 @@ namespace ConsoleApplication
 
 
   string vinput = @"C:\input\testWTVShort.wtv";
-           string voutput = @"C:\videos\testConvert_12.mkv";
+           string voutput = @"C:\videos\testConvert_17.mkv";
 
         //    string metadataFile = @"C:\output\metadata2.txt";
 

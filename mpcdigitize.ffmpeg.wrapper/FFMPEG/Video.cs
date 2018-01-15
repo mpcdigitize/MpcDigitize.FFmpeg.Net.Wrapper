@@ -53,6 +53,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
             var encodingEngine = new EncodingEngine();
+            var jobStatus = new JobStatus(encodingEngine);
 
 
             var arguments = "-i " + inputFile +
@@ -66,7 +67,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             //  Console.WriteLine(arguments);
 
             encodingEngine.LaunchProcess(arguments, Ffmpeg.GetPath());
-           Console.WriteLine(encodingEngine.ConsoleOutput);
+           //Console.WriteLine(jobStatus.EncodingEngine.output);
             //encodingEngine.StartEncoding(arguments, Ffmpeg.GetPath());
             //encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
 

@@ -14,9 +14,11 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
        // public JobStatus JobStatus = new JobStatus();
         public double Progress { get; set; }
+        public string output = "";
         Process process = new Process();
+        public StringWriter sw {get;set;}
 
-        public string ConsoleOutput;
+      //  public string ConsoleOutput;
 
         public void LaunchProcess(string arguments, string encoderPath)
         {
@@ -48,16 +50,47 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
-          ConsoleOutput = e.Data;
-            //  Console.WriteLine(e.Data + "\n");
+            //  output = e.Data;
 
-            //Console.WriteLine(ConsoleOutput);
+
+            using (var consoleOutput = new ConsOutput())
+            {
+                this.WriteToConsole(e.Data);
+                consoleOutput.GetOuput();
+
+
+
+            }
+
+            //using (var outputCapture = new OutputCapture())
+            //{
+            //    // Console.SetOut(e.Data);
+            //    //  Console.Write("test");
+            //    Console.WriteLine(e.Data);
+            //  //  outputCapture.WriteLine("captured: " + e.Data);
+            //    //Console.Write("Second line");
+            //    // Now you can look in this exact copy of what you've been outputting.
+            //    output = outputCapture.Captured.ToString();
+            //}
+
+            ////  Console.WriteLine(e.Data + "\n");
+            //// this.GetOutput(output);
+            //Console.WriteLine("OU: " + output.Length);
         }
 
         public void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
            // Console.WriteLine(e.Data + "\n");
         }
+
+
+        public void WriteToConsole(string text)
+        {
+            Console.Write(text);
+            //Console.WriteLine(output);
+
+        }
+
 
 
 

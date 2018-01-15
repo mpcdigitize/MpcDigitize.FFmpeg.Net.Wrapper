@@ -15,7 +15,7 @@ namespace mpcdigitize.ffmpeg.wrapper
  
         public Audio Audio = new Audio();
         public Video Video = new Video();
-        public JobStatus JobStatus = new JobStatus();
+       // public JobStatus JobStatus = new JobStatus();
        
 
         public Ffmpeg(string programPath)
