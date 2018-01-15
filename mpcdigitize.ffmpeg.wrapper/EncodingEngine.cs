@@ -14,14 +14,50 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
        // public JobStatus JobStatus = new JobStatus();
         public double Progress { get; set; }
-        public string output = "";
+       public string StringOutput = "";
         Process process = new Process();
         public StringWriter sw {get;set;}
 
-      //  public string ConsoleOutput;
+        //  public string ConsoleOutput;
 
-        public string LaunchProcess(string arguments, string encoderPath, out output)
+
+
+        public void Work(string arguments, string encoderPath)
         {
+       
+
+        }
+
+
+        public void DoConvert(string arguments, string encoderPath)
+        {
+
+            Process process = new Process();
+
+            process.StartInfo.Arguments = arguments;
+            process.StartInfo.FileName = encoderPath;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.Start();
+
+            // Synchronously read the standard output of the spawned process. 
+            StreamReader reader = process.StandardOutput;
+            StringOutput = reader.ReadToEnd();
+
+            // Write the redirected output to this application's window.
+           //Console.WriteLine(StringOutput);
+
+            process.WaitForExit();
+            process.Close();
+
+            Console.WriteLine("\n\nPress any key to exit.");
+            Console.ReadLine();
+
+        }
+
+        public void  LaunchProcess(string arguments, string encoderPath)
+        {
+
 
             process.EnableRaisingEvents = true;
             process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_OutputDataReceived);
@@ -38,9 +74,11 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
             process.BeginErrorReadLine();
             process.BeginOutputReadLine();
 
-            return output;
-       
+
+
           
+
+
             //below line is optional if we want a blocking call
             //process.WaitForExit();
         }
@@ -53,10 +91,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
-            
-
-
-            var originalConsoleOut = Console.Out; // preserve the original stream
+           var originalConsoleOut = Console.Out; // preserve the original stream
 
             using (var writer = new StringWriter())
             {
@@ -68,14 +103,16 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
                 writer.Flush(); // when you're done, make sure everything is written out
 
-                output = writer.GetStringBuilder().ToString();
+            StringOutput = writer.GetStringBuilder().ToString();
 
 
             }
 
           
-            Console.SetOut(originalConsoleOut); // restore Console.Out
-           // this.WriteToConsole();
+           Console.SetOut(originalConsoleOut); // restore Console.Out
+
+
+          // this.WriteToConsole();
 
             //  Console.Write("TT: " + output);
             //using (var outputCapture = new OutputCapture())
@@ -100,10 +137,12 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         }
 
 
-        public void WriteToConsole()
+        public string WriteToConsole()
         {
-            Console.Write(output);
+           Console.Write(StringOutput);
             //Console.WriteLine(output);
+
+            return StringOutput;
 
         }
 

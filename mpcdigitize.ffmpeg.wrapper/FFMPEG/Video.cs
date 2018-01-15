@@ -66,10 +66,12 @@ namespace mpcdigitize.ffmpeg.wrapper
 
             //  Console.WriteLine(arguments);
 
-            var originalConsoleOut = Console.Out; // preserve the original stream
+            //var originalConsoleOut = Console.Out; // preserve the original stream
 
+            Console.WriteLine("UP: " + encodingEngine.WriteToConsole());
             encodingEngine.LaunchProcess(arguments, Ffmpeg.GetPath());
-            encodingEngine.process_ErrorDataReceived();            
+
+            
             //encodingEngine.StartEncoding(arguments, Ffmpeg.GetPath());
             //encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
 
