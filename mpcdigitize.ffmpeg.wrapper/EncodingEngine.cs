@@ -20,7 +20,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
       //  public string ConsoleOutput;
 
-        public void LaunchProcess(string arguments, string encoderPath)
+        public string LaunchProcess(string arguments, string encoderPath, out output)
         {
 
             process.EnableRaisingEvents = true;
@@ -38,6 +38,9 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
             process.BeginErrorReadLine();
             process.BeginOutputReadLine();
 
+            return output;
+       
+          
             //below line is optional if we want a blocking call
             //process.WaitForExit();
         }
@@ -50,18 +53,31 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
-            //  output = e.Data;
+            
 
 
-            using (var consoleOutput = new ConsOutput())
+            var originalConsoleOut = Console.Out; // preserve the original stream
+
+            using (var writer = new StringWriter())
             {
-                this.WriteToConsole(e.Data);
-                consoleOutput.GetOuput();
+               // output = e.Data;
 
+                Console.SetOut(writer);
+
+                Console.WriteLine(e.Data); // or make your DLL calls :)
+
+                writer.Flush(); // when you're done, make sure everything is written out
+
+                output = writer.GetStringBuilder().ToString();
 
 
             }
 
+          
+            Console.SetOut(originalConsoleOut); // restore Console.Out
+           // this.WriteToConsole();
+
+            //  Console.Write("TT: " + output);
             //using (var outputCapture = new OutputCapture())
             //{
             //    // Console.SetOut(e.Data);
@@ -84,9 +100,9 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         }
 
 
-        public void WriteToConsole(string text)
+        public void WriteToConsole()
         {
-            Console.Write(text);
+            Console.Write(output);
             //Console.WriteLine(output);
 
         }
