@@ -3,6 +3,7 @@ using Mpcdigitize.Ffmpeg.Wrapper.Enums;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -132,7 +133,11 @@ namespace mpcdigitize.ffmpeg.wrapper
             process.BeginOutputReadLine();
 
 
+            process.WaitForExit();
 
+           
+
+         
         }
 
 
@@ -150,9 +155,17 @@ namespace mpcdigitize.ffmpeg.wrapper
             // writer.Flush(); // when you're done, make sure everything is written out
 
             StringOutput = e.Data;
-           // Console.WriteLine(StringOutput);
 
 
+            string path = @"C:\videos\test.txt";
+            using (var tw = new StreamWriter(path, true))
+            {
+                tw.WriteLine(StringOutput);
+                tw.Close();
+            }
+          //  Console.WriteLine(StringOutput);
+
+           // return StringOutput;
         }
 
 
