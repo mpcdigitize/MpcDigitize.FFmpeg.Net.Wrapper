@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AudioProfile.cs" />
     <Compile Include="ConsoleOutput.cs" />
+    <Compile Include="Encoder.cs" />
     <Compile Include="FFMPEG\Audio.cs" />
     <Compile Include="FFMPEG\Ffmpeg.cs" />
     <Compile Include="FFMPEG\FfmpegAudio.cs" />

@@ -48,12 +48,18 @@ namespace mpcdigitize.ffmpeg.wrapper
 
         }
 
+        Process process = new Process();
+
+
         public void Convert2(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, string outputFile)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
             var encodingEngine = new EncodingEngine();
             var jobStatus = new JobStatus(encodingEngine);
+
+
+            var encoder = new Encoder();
 
 
             var arguments = "-i " + inputFile +
@@ -64,16 +70,25 @@ namespace mpcdigitize.ffmpeg.wrapper
                             _arguments.GetValue(audioCodec.ToString()) +
                             outputFile;
 
-            //  Console.WriteLine(arguments);
+            encoder.SetProcess(arguments, Ffmpeg.GetPath());
 
-            //var originalConsoleOut = Console.Out; // preserve the original stream
+            encoder.Start();
 
-            Console.WriteLine("UP: " + encodingEngine.WriteToConsole());
-            encodingEngine.LaunchProcess(arguments, Ffmpeg.GetPath());
+            Console.Write("TEST :" + encoder.ReadOutput());
+
+            encoder.WaitForExit();
+
+
+            ////  Console.WriteLine(arguments);
+
+            ////var originalConsoleOut = Console.Out; // preserve the original stream
+
+            //Console.WriteLine("UP: " + encodingEngine.WriteToConsole());
+            //encodingEngine.LaunchProcess(arguments, Ffmpeg.GetPath());
 
             
-            //encodingEngine.StartEncoding(arguments, Ffmpeg.GetPath());
-            //encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
+            ////encodingEngine.StartEncoding(arguments, Ffmpeg.GetPath());
+            ////encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
 
 
         }
