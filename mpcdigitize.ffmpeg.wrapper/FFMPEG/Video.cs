@@ -2,6 +2,7 @@
 using Mpcdigitize.Ffmpeg.Wrapper.Enums;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace mpcdigitize.ffmpeg.wrapper
         public Ffmpeg Ffmpeg { get; set; }
         private FfmpegArgumentsDictionary _arguments;
         public string mconsole;
+
+        public string StringOutput = "";
 
         public Video()
         {
@@ -92,5 +95,95 @@ namespace mpcdigitize.ffmpeg.wrapper
 
 
         }
-    }
+
+        public void Convert3(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, string outputFile)
+        {
+            //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
+
+           
+
+
+            var encoder = new Encoder();
+
+
+            var arguments = "-i " + inputFile +
+                            _arguments.GetValue(videoResize.ToString()) +
+                            _arguments.GetValue(videoEncoder.ToString()) +
+                            _arguments.GetValue(videoPreset.ToString()) +
+                            _arguments.GetValue(videoConstantRateFactor.ToString()) +
+                            _arguments.GetValue(audioCodec.ToString()) +
+                            outputFile;
+
+
+
+            process.EnableRaisingEvents = true;
+            process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_OutputDataReceived);
+            process.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_ErrorDataReceived);
+            process.Exited += new System.EventHandler(process_Exited);
+
+            process.StartInfo.FileName = Ffmpeg.GetPath();
+            process.StartInfo.Arguments = arguments;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.RedirectStandardError = true;
+            process.StartInfo.RedirectStandardOutput = true;
+
+            process.Start();
+            process.BeginErrorReadLine();
+            process.BeginOutputReadLine();
+
+
+
+        }
+
+
+        public void process_Exited(object sender, EventArgs e)
+        {
+            //  Console.WriteLine(string.Format("process exited with code {0}\n", process.ExitCode.ToString()));
+        }
+
+        public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
+        {
+
+
+            //Console.WriteLine(e.Data); // or make your DLL calls :)
+
+            // writer.Flush(); // when you're done, make sure everything is written out
+
+            StringOutput = e.Data;
+           // Console.WriteLine(StringOutput);
+
+
+        }
+
+
+           
+
+
+            // this.WriteToConsole();
+
+            //  Console.Write("TT: " + output);
+            //using (var outputCapture = new OutputCapture())
+            //{
+            //    // Console.SetOut(e.Data);
+            //    //  Console.Write("test");
+            //    Console.WriteLine(e.Data);
+            //  //  outputCapture.WriteLine("captured: " + e.Data);
+            //    //Console.Write("Second line");
+            //    // Now you can look in this exact copy of what you've been outputting.
+            //    output = outputCapture.Captured.ToString();
+            //}
+
+            ////  Console.WriteLine(e.Data + "\n");
+            //// this.GetOutput(output);
+            //Console.WriteLine("OU: " + output.Length);
+        
+
+        public void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            // Console.WriteLine(e.Data + "\n");
+        }
+
+    
+
+}
 }

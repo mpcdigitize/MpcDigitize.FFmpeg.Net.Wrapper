@@ -52,7 +52,9 @@ namespace ConsoleApplication
         //    Console.WriteLine("Starting");
         //    //ffmpeg.ConvertAudio(inputFile, AudioCodec.libfdk_aac, Bitrate.high, outputFile);
         //    //ffmpeg.ExtractVideoFrame(vid_input, seconds, FrameSize.thumbnail, vid_output);
-        ffmpeg.Video.Convert2(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
+        ffmpeg.Video.Convert3(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
+            Console.WriteLine(ffmpeg.Video.StringOutput);
+
             //    //ffmpeg.SaveStream(streamMP3, saveStream);
             //    // ffmpeg.ConvertAudio(streamPR3, AudioEncoder.Libmp3lame, Bitrate.BitrateNormal, saveStream);
 
