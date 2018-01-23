@@ -14,13 +14,36 @@ namespace mpcdigitize.ffmpeg.wrapper
         private StreamReader _reader;
         public string ConsoleOutput;
 
+
+        public event EventHandler<VideoEventArgs> VideoEncoded;
+
         public Encoder()
         {
 
             _process = new Process();
             
+        }
+
+
+
+        public void DoWork()
+        {
+
 
         }
+
+
+        protected virtual void OnVideoEncoded()
+        {
+
+
+        }
+
+
+
+
+
+
 
 
         public void SetProcess(string arguments, string encoderPath)
