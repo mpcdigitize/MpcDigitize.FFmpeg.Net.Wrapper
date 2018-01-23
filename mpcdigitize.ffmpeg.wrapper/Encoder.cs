@@ -13,23 +13,44 @@ namespace mpcdigitize.ffmpeg.wrapper
         private Process _process;
         private StreamReader _reader;
         public string ConsoleOutput;
+        private string _encoderPath;
 
 
         public event EventHandler<VideoEventArgs> VideoEncoded;
         public event EventHandler VideoEncoding;
 
-        public Encoder()
+        public Encoder(string encoderPath)
         {
-
+            _encoderPath = encoderPath;
             _process = new Process();
             
         }
 
-
-
         public void DoWork(EncodingJob encodingJob)
         {
 
+            this._process.EnableRaisingEvents = true;
+            this._process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_OutputDataReceived);
+            this._process.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_ErrorDataReceived);
+            this._process.Exited += new System.EventHandler(process_Exited);
+
+            this._process.StartInfo.FileName = _encoderPath;
+
+            this._process.StartInfo.Arguments = encodingJob.InputFile + 
+                                                encodingJob.ConversionArguments + 
+                                                encodingJob.OutputFile; 
+
+            this._process.StartInfo.UseShellExecute = false;
+            this._process.StartInfo.RedirectStandardError = true;
+            this._process.StartInfo.RedirectStandardOutput = true;
+
+
+            this._process.Start();
+            this._process.BeginErrorReadLine();
+            this._process.BeginOutputReadLine();
+
+            this._process.WaitForExit();
+            this._process.Close();
 
         }
 
@@ -61,59 +82,6 @@ namespace mpcdigitize.ffmpeg.wrapper
 
 
 
-
-
-
-
-        public void SetProcess(string arguments, string encoderPath)
-        {
-
-            //this._process.StartInfo.Arguments = arguments;
-            //this._process.StartInfo.FileName = encoderPath;
-            //this._process.StartInfo.UseShellExecute = false;
-            //this._process.StartInfo.RedirectStandardOutput = true;
-
-            this._process.EnableRaisingEvents = true;
-            this._process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_OutputDataReceived);
-            this._process.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_ErrorDataReceived);
-            this._process.Exited += new System.EventHandler(process_Exited);
-
-            this._process.StartInfo.FileName = encoderPath;
-            this._process.StartInfo.Arguments = arguments;
-            this._process.StartInfo.UseShellExecute = false;
-            this._process.StartInfo.RedirectStandardError = true;
-            this._process.StartInfo.RedirectStandardOutput = true;
-
-        }
-
-
-        public string ReadOutput()
-        {
-          //  this._reader = this._process.StandardOutput;
-            //ConsoleOutput = this._reader.ReadToEnd();
-
-            return ConsoleOutput;
-        }
-
-        public void Start()
-        {
-
-            this._process.Start();
-            this._process.BeginErrorReadLine();
-            this._process.BeginOutputReadLine();
-
-        }
-
-
-
-        public void WaitForExit()
-        {
-            this._process.WaitForExit();
-            this._process.Close();
-
-        }
-
-
         public void process_Exited(object sender, EventArgs e)
         {
             //  Console.WriteLine(string.Format("process exited with code {0}\n", process.ExitCode.ToString()));
@@ -121,10 +89,6 @@ namespace mpcdigitize.ffmpeg.wrapper
 
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
-
-
-
-
 
             var originalConsoleOut = Console.Out; // preserve the original stream
 
