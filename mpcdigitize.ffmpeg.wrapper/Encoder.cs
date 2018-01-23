@@ -16,6 +16,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 
 
         public event EventHandler<VideoEventArgs> VideoEncoded;
+        public event EventHandler VideoEncoding;
 
         public Encoder()
         {
@@ -26,15 +27,33 @@ namespace mpcdigitize.ffmpeg.wrapper
 
 
 
-        public void DoWork()
+        public void DoWork(EncodingJob encodingJob)
         {
 
 
         }
 
 
-        protected virtual void OnVideoEncoded()
+        protected virtual void OnVideoEncoded(EncodingJob encodingJob)
         {
+
+            if (VideoEncoded != null)
+            {
+                VideoEncoded(this, new VideoEventArgs());
+
+            }
+
+
+        }
+
+        protected virtual void OnVideoEncoding(EncodingJob encodingJob)
+        {
+
+            if (VideoEncoding != null)
+            {
+                VideoEncoded(this, new VideoEventArgs());
+
+            }
 
 
         }
