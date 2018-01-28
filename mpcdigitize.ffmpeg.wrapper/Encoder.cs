@@ -45,7 +45,7 @@ namespace mpcdigitize.ffmpeg.wrapper
         private string _encoderPath;
 
 
-        public event EventHandler VideoEncoded;
+       // public event EventHandler VideoEncoded;
         public event EventHandler<EncodingEventArgs> VideoEncoding;
 
         public FfmpegEncoder(string encoderPath)
@@ -95,20 +95,19 @@ namespace mpcdigitize.ffmpeg.wrapper
 
         }
 
-        protected virtual void OnVideoEncoding(EncodingStats encodingStats)
+        protected virtual void OnVideoEncoding(EncodingEventArgs e)
         {
 
-            //if (VideoEncoding != null)
-            //{
+            VideoEncoding?.Invoke(this, e);
 
-                EncodingEventArgs args = new EncodingEventArgs();
-                args.Data = this._encodingStats.Data;
-                args.Progress = this._encodingStats.Progress;
+            //EncodingEventArgs args = new EncodingEventArgs();
+            //args.Data = this._encodingStats.Data;
+            //args.Progress = this._encodingStats.Progress;
 
-            Console.WriteLine("OnVideoEncoding : " + this._encodingStats.Data);
+            Console.WriteLine("OnVideoEncoding : Progress > " + e.Progress + "  DATA > " + e.Data);
 
-            VideoEncoding(this, args);
-           
+            //    VideoEncoding(this, new EncodingEventArgs(encodingStats));
+
 
 
             //}
@@ -130,7 +129,7 @@ namespace mpcdigitize.ffmpeg.wrapper
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
-            var data = e.Data;
+           // var data = e.Data;
 
             //using (StreamReader reader = e.Data)
             //{
@@ -139,12 +138,13 @@ namespace mpcdigitize.ffmpeg.wrapper
             //        string readerLine = reader.ReadLine();
 
             //    }
-            this._encodingStats = new EncodingStats();
-            this._encodingStats.Data = e.Data;
-            this._encodingStats.Progress = data.GetProgress();
-            OnVideoEncoding(this._encodingStats);
-          // Console.WriteLine("DATA : " + this._encodingStats.Data);
-          // Console.WriteLine("DATA : " + this._encodingStats.Progress);
+            //this._encodingStats = new EncodingStats();
+            //this._encodingStats.Data = e.Data;
+            //this._encodingStats.Progress = data.GetProgress();
+            OnVideoEncoding(new EncodingEventArgs() { Progress = e.Data.GetProgress(), Data = e.Data } );
+        
+            // Console.WriteLine("DATA : " + this._encodingStats.Data);
+            // Console.WriteLine("DATA : " + this._encodingStats.Progress);
 
 
 

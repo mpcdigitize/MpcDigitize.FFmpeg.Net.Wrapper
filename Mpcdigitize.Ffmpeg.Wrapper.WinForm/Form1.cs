@@ -19,6 +19,9 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
             InitializeComponent();
         }
 
+
+        private delegate void DiaplayProgressDelagate(object sender,EncodingEventArgs e);
+
         private void button1_Click(object sender, EventArgs e)
         {
             var arguments = new FfmpegArgumentsDictionary();
@@ -36,22 +39,35 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
             var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
 
-            ffmpeg.VideoEncoding += DisplayProgress;
+           ffmpeg.VideoEncoding += DisplayProgress;
 
             ffmpeg.DoWork(job);
 
-            MessageBox.Show("Completed");
+            Console.WriteLine("Completed");
 
         }
 
 
-        public void DisplayProgress(object source,EncodingEventArgs e)
+        public void DisplayProgress(object sender,EncodingEventArgs e)
         {
-            //label1.Text = e.Progress.ToString();
+
+            if (label1.InvokeRequired == true)
+            {
+                DiaplayProgressDelagate del = new DiaplayProgressDelagate(DisplayProgress);
+                this.BeginInvoke(del, new object[] { e });
+
+            }
+            else
+            {
+                //Console.WriteLine(e._encodingStats.Data);
+                label1.Text = e.Progress.ToString();
+             //   label1.Refresh();
+
+            }
             // Console.WriteLine(e.Progress.ToString());
-            MessageBox.Show("Converting");
+           // MessageBox.Show("Converting");
             //MessageBox.Show(e.Progress.ToString());
-            //label1.Refresh();
+          
 
 
         }

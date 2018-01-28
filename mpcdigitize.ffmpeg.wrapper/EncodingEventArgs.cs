@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace mpcdigitize.ffmpeg.wrapper
 {
-    public class EncodingEventArgs
+    public class EncodingEventArgs: EventArgs
     {
 
-       public EncodingStats EncodingStats { get; set;}
+        public double Progress { get; set;}
+        public string Data { get; set;} 
+       
     }
 }

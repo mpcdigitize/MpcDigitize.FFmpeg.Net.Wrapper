@@ -8,7 +8,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 {
     public class EncodingStats
     {
-        public string Duration { get; set; }
+       // public string Duration { get; set; }
         public double Progress { get; set; }
         public string Data { get; set; }
 
