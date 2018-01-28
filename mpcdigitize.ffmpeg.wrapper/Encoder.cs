@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace mpcdigitize.ffmpeg.wrapper
 {
-    public class Encoder
+    public class FfmpegEncoder
     {
         private Process _process;
         private StreamReader _reader;
@@ -47,7 +47,7 @@ namespace mpcdigitize.ffmpeg.wrapper
         public event EventHandler VideoEncoded;
         public event EventHandler<EncodingEventArgs> VideoEncoding;
 
-        public Encoder(string encoderPath)
+        public FfmpegEncoder(string encoderPath)
         {
             _encoderPath = encoderPath;
             _process = new Process();
@@ -65,7 +65,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 
             this._process.StartInfo.FileName = _encoderPath;
 
-            this._process.StartInfo.Arguments = encodingJob.InputFile +
+            this._process.StartInfo.Arguments = "-i " + encodingJob.InputFile +
                                                 encodingJob.ConversionArguments +
                                                 encodingJob.OutputFile;
 
@@ -133,7 +133,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             //string readerLine = reader.ReadLine();
 
             this._encodingStats.Data = e.Data;
-            Console.WriteLine(this._encodingStats.Data);
+            Console.WriteLine("DATA : " + this._encodingStats.Data);
 
 
 

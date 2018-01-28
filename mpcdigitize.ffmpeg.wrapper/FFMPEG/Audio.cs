@@ -10,7 +10,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 {
     public class Audio 
     {
-        public Ffmpeg Ffmpeg { get; set;}
+        public ArgsSelector argsSelector { get; set; }
         private FfmpegArgumentsDictionary _arguments;
 
         public Audio()

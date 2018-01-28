@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mpcdigitize.ffmpeg.wrapper
 {
-    public class Ffmpeg
+    public class ArgsSelector
     {
 
  
@@ -18,11 +18,11 @@ namespace mpcdigitize.ffmpeg.wrapper
        // public JobStatus JobStatus = new JobStatus();
        
 
-        public Ffmpeg(string programPath)
+        public ArgsSelector()
         {
-            _programPath = programPath;
-            Audio.Ffmpeg = this;
-            Video.Ffmpeg = this;
+           // _programPath = programPath;
+          //  Audio.Ffmpeg = this;
+          //  Video.Ffmpeg = this;
         }
 
        

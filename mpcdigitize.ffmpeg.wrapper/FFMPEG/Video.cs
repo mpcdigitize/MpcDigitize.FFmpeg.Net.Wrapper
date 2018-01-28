@@ -12,7 +12,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 {
     public class Video
     {
-        public Ffmpeg Ffmpeg { get; set; }
+        public ArgsSelector argsSelector { get; set; }
         private FfmpegArgumentsDictionary _arguments;
         public string mconsole;
 
@@ -45,7 +45,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             // Console.WriteLine(arguments);
 
 
-            encodingEngine.LaunchProcess(arguments, Ffmpeg.GetPath());
+       //     encodingEngine.LaunchProcess(arguments, Ffmpeg.GetPath());
             // encodingEngine.StartEncoding(arguments, Ffmpeg.GetPath());
            // encodingEngine.StartProcess(arguments, Ffmpeg.GetPath());
 
@@ -63,7 +63,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             var jobStatus = new JobStatus(encodingEngine);
 
 
-            var encoder = new Encoder();
+           
 
 
             var arguments = "-i " + inputFile +
@@ -74,13 +74,7 @@ namespace mpcdigitize.ffmpeg.wrapper
                             _arguments.GetValue(audioCodec.ToString()) +
                             outputFile;
 
-            encoder.SetProcess(arguments, Ffmpeg.GetPath());
-
-            encoder.Start();
-
-            Console.Write("TEST :" + encoder.ReadOutput());
-
-            encoder.WaitForExit();
+            
 
 
             ////  Console.WriteLine(arguments);
@@ -97,43 +91,22 @@ namespace mpcdigitize.ffmpeg.wrapper
 
         }
 
-        public void Convert3(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, string outputFile)
+        public string Convert3(VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
            
-
-
-            var encoder = new Encoder();
-
-
-            var arguments = "-i " + inputFile +
-                            _arguments.GetValue(videoResize.ToString()) +
+            var arguments = _arguments.GetValue(videoResize.ToString()) +
                             _arguments.GetValue(videoEncoder.ToString()) +
                             _arguments.GetValue(videoPreset.ToString()) +
                             _arguments.GetValue(videoConstantRateFactor.ToString()) +
-                            _arguments.GetValue(audioCodec.ToString()) +
-                            outputFile;
+                            _arguments.GetValue(audioCodec.ToString());
 
 
 
-            process.EnableRaisingEvents = true;
-            process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_OutputDataReceived);
-            process.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_ErrorDataReceived);
-            process.Exited += new System.EventHandler(process_Exited);
 
-            process.StartInfo.FileName = Ffmpeg.GetPath();
-            process.StartInfo.Arguments = arguments;
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardError = true;
-            process.StartInfo.RedirectStandardOutput = true;
-
-            process.Start();
-            process.BeginErrorReadLine();
-            process.BeginOutputReadLine();
-
-
-            process.WaitForExit();
+            return arguments;
+         
 
            
 

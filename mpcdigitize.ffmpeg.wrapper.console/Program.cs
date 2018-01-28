@@ -17,25 +17,36 @@ namespace ConsoleApplication
         static void Main(string[] args)
         {
             var arguments = new FfmpegArgumentsDictionary();
-            var ffmpeg = new Ffmpeg(@"C:\ffmpeg\ffmpeg.exe");
+          //  var ffmpeg = new Ffmpeg(@"C:\ffmpeg\ffmpeg.exe");
             //  string inputFile = @"C:\input\testmp4.mp4";
             //string outputFile = @"C:\output\testmp3_2.mp3";
 
-           // ffmpeg.Audio.Convert();
+            // ffmpeg.Audio.Convert();
             //ffmpeg.Video.Convert();
-      
 
 
-            
+            var job = new EncodingJob();
+            var argsSelector = new ArgsSelector();
 
 
-      string vid_input = @"C:\input\testWTV.wtv";
-            string vid_output = @"C:\frames\frame_14.jpg";
+            job.InputFile = @"C:\input\testWTVShort.wtv";
+            job.OutputFile = @"C:\videos\testConvert_2.mkv";
+            job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
+
+            var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
+
+            ffmpeg.DoWork(job);
+
+
+
+
+         //   string vid_input = @"C:\input\testWTV.wtv";
+         //   string vid_output = @"C:\frames\frame_14.jpg";
         //    int seconds = 100;
 
 
-  string vinput = @"C:\input\testWTVShort.wtv";
-           string voutput = @"C:\videos\testConvert_2.mkv";
+  //string vinput = @"C:\input\testWTVShort.wtv";
+  //         string voutput = @"C:\videos\testConvert_2.mkv";
 
             //    string metadataFile = @"C:\output\metadata2.txt";
 
@@ -52,19 +63,21 @@ namespace ConsoleApplication
             //    Console.WriteLine("Starting");
             //    //ffmpeg.ConvertAudio(inputFile, AudioCodec.libfdk_aac, Bitrate.high, outputFile);
             //    //ffmpeg.ExtractVideoFrame(vid_input, seconds, FrameSize.thumbnail, vid_output);
-           ffmpeg.Video.Convert3(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
+
+
+         //->  ffmpeg.Video.Convert3(vinput,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal,AudioCodec.Ac3,voutput);
 
           //  string path = @"C:\videos\test.txt";
 
-            System.IO.StreamReader file = new StreamReader( @"C:\videos\test.txt");
-            string line;
+            //System.IO.StreamReader file = new StreamReader( @"C:\videos\test.txt");
+            //string line;
 
-            while ((line = file.ReadLine()) != null)
-            {
-                Console.WriteLine(line);
-            }
+            //while ((line = file.ReadLine()) != null)
+            //{
+            //    Console.WriteLine(line);
+            //}
 
-            file.Close();
+            //file.Close();
 
                 //Console.WriteLine(ffmpeg.Video.StringOutput);
 
