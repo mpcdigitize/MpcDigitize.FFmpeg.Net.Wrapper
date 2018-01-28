@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mpcdigitize.ffmpeg.wrapper.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -99,7 +100,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 
                 EncodingEventArgs args = new EncodingEventArgs();
                 args.Data = this._encodingStats.Data;
-              
+                args.Progress = this._encodingStats.Progress;
 
                 VideoEncoding(this, args);
 
@@ -124,20 +125,24 @@ namespace mpcdigitize.ffmpeg.wrapper
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
-            //  var data = e.Data;
+            var data = e.Data;
 
-            //using (StreamReader reader = data)
+            //using (StreamReader reader = e.Data)
             //{
             //    while (!reader.EndOfStream)
             //    {
-            //string readerLine = reader.ReadLine();
+            //        string readerLine = reader.ReadLine();
+
+            //    }
 
             this._encodingStats.Data = e.Data;
-            Console.WriteLine("DATA : " + this._encodingStats.Data);
+            this._encodingStats.Progress = data.GetProgress();
+            //Console.WriteLine("DATA : " + this._encodingStats.Data);
+            Console.WriteLine("DATA : " + this._encodingStats.Progress);
 
 
 
-        }
+            }
 
         //}
 

@@ -46,6 +46,7 @@
     <Compile Include="EncodingEventArgs.cs" />
     <Compile Include="EncodingJob.cs" />
     <Compile Include="EncodingStats.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="FFMPEG\Audio.cs" />
     <Compile Include="FFMPEG\Ffmpeg.cs" />
     <Compile Include="FFMPEG\FfmpegAudio.cs" />
@@ -71,9 +72,7 @@
     <Compile Include="VideoEventArgs.cs" />
     <Compile Include="VideoProfile.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
