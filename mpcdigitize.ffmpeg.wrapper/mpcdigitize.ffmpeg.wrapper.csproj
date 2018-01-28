@@ -43,7 +43,9 @@
     <Compile Include="AudioProfile.cs" />
     <Compile Include="ConsoleOutput.cs" />
     <Compile Include="Encoder.cs" />
+    <Compile Include="EncodingEventArgs.cs" />
     <Compile Include="EncodingJob.cs" />
+    <Compile Include="EncodingStats.cs" />
     <Compile Include="FFMPEG\Audio.cs" />
     <Compile Include="FFMPEG\Ffmpeg.cs" />
     <Compile Include="FFMPEG\FfmpegAudio.cs" />

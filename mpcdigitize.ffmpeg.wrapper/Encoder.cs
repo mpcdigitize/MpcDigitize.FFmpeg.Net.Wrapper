@@ -23,16 +23,16 @@ namespace mpcdigitize.ffmpeg.wrapper
             }
             set
             {
-                if (_encodingStats != value)
-                {
-                    EncodingEventArgs args = new EncodingEventArgs();
-                    args.Duration = this._encodingStats.Duration;
-                    args.Progress = this._encodingStats.Progress;
+                //if (_encodingStats != value)
+                //{
+                //    EncodingEventArgs args = new EncodingEventArgs();
+                //    args.Duration = this._encodingStats.Duration;
+                //    args.Progress = this._encodingStats.Progress;
 
-                    VideoEncoding(this, args);
+                //    VideoEncoding(this, args);
 
 
-                }
+                //}
 
             }
 
@@ -96,7 +96,14 @@ namespace mpcdigitize.ffmpeg.wrapper
 
             if (VideoEncoding != null)
             {
-                VideoEncoded(this, new EncodingEventArgs());
+
+                EncodingEventArgs args = new EncodingEventArgs();
+                args.Data = this._encodingStats.Data;
+              
+
+                VideoEncoding(this, args);
+
+               
 
             }
 
@@ -117,26 +124,22 @@ namespace mpcdigitize.ffmpeg.wrapper
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
+            //  var data = e.Data;
 
+            //using (StreamReader reader = data)
+            //{
+            //    while (!reader.EndOfStream)
+            //    {
+            //string readerLine = reader.ReadLine();
 
-            using (StreamReader reader = e.Data())
-            {
-                while (!reader.EndOfStream)
-                {
-                    string readerLine = reader.ReadLine();
-
-                    this._encodingStats.Progress = readerLine.GetProgress();
-
-
-
-                }
-
-            }
-
+            this._encodingStats.Data = e.Data;
+            Console.WriteLine(this._encodingStats.Data);
 
 
 
         }
+
+        //}
 
         public void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
@@ -144,9 +147,17 @@ namespace mpcdigitize.ffmpeg.wrapper
         }
 
 
-
-
-
-
     }
 }
+
+       
+
+
+
+
+
+
+ 
+
+
+

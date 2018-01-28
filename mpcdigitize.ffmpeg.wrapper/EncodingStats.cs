@@ -10,6 +10,7 @@ namespace mpcdigitize.ffmpeg.wrapper
     {
         public string Duration { get; set; }
         public double Progress { get; set; }
+        public string Data { get; set; }
 
     }
 }

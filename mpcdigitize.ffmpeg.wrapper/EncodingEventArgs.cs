@@ -13,5 +13,6 @@ namespace mpcdigitize.ffmpeg.wrapper
         public double Progress { get; set; }
         public string InputFile { get; set; }
         public string OutputFile { get; set; }
+        public string Data { get; set; }
     }
 }
