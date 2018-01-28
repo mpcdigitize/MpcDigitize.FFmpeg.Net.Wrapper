@@ -9,10 +9,6 @@ namespace mpcdigitize.ffmpeg.wrapper
     public class EncodingEventArgs
     {
 
-        public string Duration { get; set; }
-        public double Progress { get; set; }
-        public string InputFile { get; set; }
-        public string OutputFile { get; set; }
-        public string Data { get; set; }
+       public EncodingStats EncodingStats { get; set;}
     }
 }

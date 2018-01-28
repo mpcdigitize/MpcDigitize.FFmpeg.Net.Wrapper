@@ -16,15 +16,15 @@ namespace mpcdigitize.ffmpeg.wrapper
         private EncodingStats _encodingStats;
 
 
-        public EncodingStats EncodingStats
-        {
-            get
-            {
-                return _encodingStats;
-            }
-            set
-            {
-                //if (_encodingStats != value)
+       // public EncodingStats EncodingStats { get; set;}
+        //{
+        //    get
+        //    {
+        //        return _encodingStats;
+        //    }
+        //    set
+        //    {
+        //        //if (_encodingStats != value)
                 //{
                 //    EncodingEventArgs args = new EncodingEventArgs();
                 //    args.Duration = this._encodingStats.Duration;
@@ -35,9 +35,9 @@ namespace mpcdigitize.ffmpeg.wrapper
 
                 //}
 
-            }
+            //}
 
-        }
+        //}
 
 
 
@@ -61,7 +61,9 @@ namespace mpcdigitize.ffmpeg.wrapper
 
             this._process.EnableRaisingEvents = true;
             this._process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_OutputDataReceived);
+           
             this._process.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_ErrorDataReceived);
+
             this._process.Exited += new System.EventHandler(process_Exited);
 
             this._process.StartInfo.FileName = _encoderPath;
@@ -73,6 +75,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             this._process.StartInfo.UseShellExecute = false;
             this._process.StartInfo.RedirectStandardError = true;
             this._process.StartInfo.RedirectStandardOutput = true;
+           // this._process.StartInfo.CreateNoWindow = true;
 
 
             this._process.Start();
@@ -95,18 +98,20 @@ namespace mpcdigitize.ffmpeg.wrapper
         protected virtual void OnVideoEncoding(EncodingStats encodingStats)
         {
 
-            if (VideoEncoding != null)
-            {
+            //if (VideoEncoding != null)
+            //{
 
                 EncodingEventArgs args = new EncodingEventArgs();
                 args.Data = this._encodingStats.Data;
                 args.Progress = this._encodingStats.Progress;
 
-                VideoEncoding(this, args);
+            Console.WriteLine("OnVideoEncoding : " + this._encodingStats.Data);
 
-               
+            VideoEncoding(this, args);
+           
 
-            }
+
+            //}
 
 
         }
@@ -134,15 +139,16 @@ namespace mpcdigitize.ffmpeg.wrapper
             //        string readerLine = reader.ReadLine();
 
             //    }
-
+            this._encodingStats = new EncodingStats();
             this._encodingStats.Data = e.Data;
             this._encodingStats.Progress = data.GetProgress();
-            //Console.WriteLine("DATA : " + this._encodingStats.Data);
-            Console.WriteLine("DATA : " + this._encodingStats.Progress);
+            OnVideoEncoding(this._encodingStats);
+          // Console.WriteLine("DATA : " + this._encodingStats.Data);
+          // Console.WriteLine("DATA : " + this._encodingStats.Progress);
 
 
 
-            }
+        }
 
         //}
 
