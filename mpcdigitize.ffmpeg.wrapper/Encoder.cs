@@ -12,18 +12,47 @@ namespace mpcdigitize.ffmpeg.wrapper
     {
         private Process _process;
         private StreamReader _reader;
+        private EncodingStats _encodingStats;
+
+
+        public EncodingStats EncodingStats
+        {
+            get
+            {
+                return _encodingStats;
+            }
+            set
+            {
+                if (_encodingStats != value)
+                {
+                    EncodingEventArgs args = new EncodingEventArgs();
+                    args.Duration = this._encodingStats.Duration;
+                    args.Progress = this._encodingStats.Progress;
+
+                    VideoEncoding(this, args);
+
+
+                }
+
+            }
+
+        }
+
+
+
         public string ConsoleOutput;
         private string _encoderPath;
 
 
-        public event EventHandler<VideoEventArgs> VideoEncoded;
-        public event EventHandler VideoEncoding;
+        public event EventHandler VideoEncoded;
+        public event EventHandler<EncodingEventArgs> VideoEncoding;
 
         public Encoder(string encoderPath)
         {
             _encoderPath = encoderPath;
             _process = new Process();
-            
+            _encodingStats = new EncodingStats();
+
         }
 
         public void DoWork(EncodingJob encodingJob)
@@ -36,9 +65,9 @@ namespace mpcdigitize.ffmpeg.wrapper
 
             this._process.StartInfo.FileName = _encoderPath;
 
-            this._process.StartInfo.Arguments = encodingJob.InputFile + 
-                                                encodingJob.ConversionArguments + 
-                                                encodingJob.OutputFile; 
+            this._process.StartInfo.Arguments = encodingJob.InputFile +
+                                                encodingJob.ConversionArguments +
+                                                encodingJob.OutputFile;
 
             this._process.StartInfo.UseShellExecute = false;
             this._process.StartInfo.RedirectStandardError = true;
@@ -55,24 +84,19 @@ namespace mpcdigitize.ffmpeg.wrapper
         }
 
 
-        protected virtual void OnVideoEncoded(EncodingJob encodingJob)
+        protected virtual void OnVideoEncoded()
         {
 
-            if (VideoEncoded != null)
-            {
-                VideoEncoded(this, new VideoEventArgs());
-
-            }
 
 
         }
 
-        protected virtual void OnVideoEncoding(EncodingJob encodingJob)
+        protected virtual void OnVideoEncoding(EncodingStats encodingStats)
         {
 
             if (VideoEncoding != null)
             {
-                VideoEncoded(this, new VideoEventArgs());
+                VideoEncoded(this, new EncodingEventArgs());
 
             }
 
@@ -87,54 +111,40 @@ namespace mpcdigitize.ffmpeg.wrapper
             //  Console.WriteLine(string.Format("process exited with code {0}\n", process.ExitCode.ToString()));
         }
 
+
+
+
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
-            var originalConsoleOut = Console.Out; // preserve the original stream
 
-            using (var writer = new StringWriter())
+
+            using (StreamReader reader = e.Data())
             {
-              //  ConsoleOutput = e.Data;
+                while (!reader.EndOfStream)
+                {
+                    string readerLine = reader.ReadLine();
 
-                Console.SetOut(writer);
+                    this._encodingStats.Progress = readerLine.GetProgress();
 
-                Console.WriteLine(e.Data); // or make your DLL calls :)
 
-                writer.Flush(); // when you're done, make sure everything is written out
 
-                ConsoleOutput = writer.GetStringBuilder().ToString();
-
+                }
 
             }
 
 
-            Console.SetOut(originalConsoleOut); // restore Console.Out
 
-            this.ReadOutput();
 
-            // this.WriteToConsole();
-
-            //  Console.Write("TT: " + output);
-            //using (var outputCapture = new OutputCapture())
-            //{
-            //    // Console.SetOut(e.Data);
-            //    //  Console.Write("test");
-            //    Console.WriteLine(e.Data);
-            //  //  outputCapture.WriteLine("captured: " + e.Data);
-            //    //Console.Write("Second line");
-            //    // Now you can look in this exact copy of what you've been outputting.
-            //    output = outputCapture.Captured.ToString();
-            //}
-
-            ////  Console.WriteLine(e.Data + "\n");
-            //// this.GetOutput(output);
-            //Console.WriteLine("OU: " + output.Length);
         }
 
         public void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
             // Console.WriteLine(e.Data + "\n");
         }
+
+
+
 
 
 
