@@ -104,7 +104,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             //args.Data = this._encodingStats.Data;
             //args.Progress = this._encodingStats.Progress;
 
-            Console.WriteLine("OnVideoEncoding : Progress > " + e.Progress + "  DATA > " + e.Data);
+           // Console.WriteLine("OnVideoEncoding : Progress > " + e.Progress + "  DATA > " + e.Data);
 
             //    VideoEncoding(this, new EncodingEventArgs(encodingStats));
 
@@ -141,7 +141,9 @@ namespace mpcdigitize.ffmpeg.wrapper
             //this._encodingStats = new EncodingStats();
             //this._encodingStats.Data = e.Data;
             //this._encodingStats.Progress = data.GetProgress();
-            OnVideoEncoding(new EncodingEventArgs() { Progress = e.Data.GetProgress(), Data = e.Data } );
+            OnVideoEncoding(new EncodingEventArgs() {
+                Progress = e.Data.GetProgress(),
+                Data = e.Data } );
         
             // Console.WriteLine("DATA : " + this._encodingStats.Data);
             // Console.WriteLine("DATA : " + this._encodingStats.Progress);

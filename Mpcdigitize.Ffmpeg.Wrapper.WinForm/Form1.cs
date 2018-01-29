@@ -33,7 +33,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_2.mkv";
+            job.OutputFile = @"C:\videos\testConvert_1.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
@@ -59,6 +59,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
             }
             else
             {
+                MessageBox.Show("MainThhread");
                 //Console.WriteLine(e._encodingStats.Data);
                 label1.Text = e.Progress.ToString();
              //   label1.Refresh();
