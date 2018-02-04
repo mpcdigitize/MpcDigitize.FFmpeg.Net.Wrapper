@@ -39,7 +39,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
             var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
 
-           ffmpeg.VideoEncoding += DisplayProgress;
+         //  ffmpeg.VideoEncoding += DisplayProgress;
 
             ffmpeg.DoWork(job);
 
@@ -48,30 +48,30 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         }
 
 
-        public void DisplayProgress(object sender,EncodingEventArgs e)
-        {
+        //public void DisplayProgress(object sender,EncodingEventArgs e)
+        //{
 
-            if (label1.InvokeRequired == true)
-            {
-                DiaplayProgressDelagate del = new DiaplayProgressDelagate(DisplayProgress);
-                this.BeginInvoke(del, new object[] { e });
+        //    if (label1.InvokeRequired == true)
+        //    {
+        //        DiaplayProgressDelagate del = new DiaplayProgressDelagate(DisplayProgress);
+        //        this.BeginInvoke(del, new object[] { e });
 
-            }
-            else
-            {
-                MessageBox.Show("MainThhread");
-                //Console.WriteLine(e._encodingStats.Data);
-                label1.Text = e.Progress.ToString();
-             //   label1.Refresh();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("MainThhread");
+        //        //Console.WriteLine(e._encodingStats.Data);
+        //        label1.Text = e.Progress.ToString();
+        //     //   label1.Refresh();
 
-            }
-            // Console.WriteLine(e.Progress.ToString());
-           // MessageBox.Show("Converting");
-            //MessageBox.Show(e.Progress.ToString());
+        //    }
+        //    // Console.WriteLine(e.Progress.ToString());
+        //   // MessageBox.Show("Converting");
+        //    //MessageBox.Show(e.Progress.ToString());
           
 
 
-        }
+        //}
 
 
     }

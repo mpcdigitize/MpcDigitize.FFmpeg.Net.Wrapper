@@ -142,7 +142,14 @@ namespace mpcdigitize.ffmpeg.wrapper
             //this._encodingStats.Data = e.Data;
             //this._encodingStats.Progress = data.GetProgress();
             OnVideoEncoding(new EncodingEventArgs() {
-                Progress = e.Data.GetProgress(),
+
+                Frame = e.Data.GetFrame(),
+                Fps = e.Data.GetFps(),
+                Size = e.Data.GetSize(),
+                TimeInSeconds = e.Data.GetTime(),
+                Bitrate = e.Data.GetBitrate(),
+                Speed = e.Data.GetSpeed(),
+                Position = e.Data.GetPosition(),
                 Data = e.Data } );
         
             // Console.WriteLine("DATA : " + this._encodingStats.Data);

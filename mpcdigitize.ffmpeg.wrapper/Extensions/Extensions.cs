@@ -12,65 +12,133 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
 
         public static string GetFrame(this string line)
         {
-            var frame = Regex.Match(line, @"(frame=) (\d+)");
+            string result = "";
 
-            return frame.Groups[2].Value;
+            if (line != null)
+            {
+
+
+
+                var frame = Regex.Match(line, @"(frame=) (\d+)");
+                result =  frame.Groups[2].Value;
+
+            }
+
+            return result;
+
+           
 
         }
 
         public static string GetFps(this string line)
         {
-            var fps = Regex.Match(line, @"(fps=)(\d+)");
+            string result = "";
 
-            return fps.Groups[2].Value;
+            if (line != null)
+            {
+
+                var fps = Regex.Match(line, @"(fps=)(\d+)");
+
+               result =  fps.Groups[2].Value;
+
+            }
+
+            return result;
 
         }
 
 
         public static string GetSize(this string line)
         {
-            var size = Regex.Match(line, @"(size=) (\d+)");
 
-            return size.Groups[2].Value;
+            string result = "";
 
+            if (line != null)
+            {
+                var size = Regex.Match(line, @"(size=) (\d+)");
+
+                result = size.Groups[2].Value;
+
+            }
+
+            return result;
         }
 
-        public static double GetTime(this string line)
+        public static string GetTime(this string line)
         {
-            double seconds = 0;
-            var time = Regex.Match(line, @"(time=)(\d+:\d+:\d+.\d+)");
+            string result = "";
+
+            if (line != null)
+            {
+
+                // double seconds = 0;
+                var time = Regex.Match(line, @"(time=)(\d+:\d+:\d+.\d+)");
 
 
-            seconds = TimeSpan.Parse(time.Groups[2].Value).TotalSeconds;
-            return seconds;
+                //seconds = TimeSpan.Parse(time.Groups[2].Value).TotalSeconds;
+
+                result =  time.Groups[2].Value;
+                // return seconds;
+
+            }
+
+            return result;
+
 
         }
 
 
         public static string GetBitrate(this string line)
         {
-            var bitrate = Regex.Match(line, @"(bitrate=) (\d+.\d+)");
 
-            return bitrate.Groups[2].Value;
+            string result = "";
 
+            if (line != null)
+            {
+
+                var bitrate = Regex.Match(line, @"(bitrate=) (\d+.\d+)");
+
+                result =  bitrate.Groups[2].Value;
+            }
+
+            return result;
         }
 
 
         public static string GetSpeed(this string line)
         {
-            var speed = Regex.Match(line, @"(speed=)(\d+.\d+)");
 
-            return speed.Groups[2].Value;
+            string result = "";
 
+            if (line != null)
+            {
+
+                var speed = Regex.Match(line, @"(speed=)(\d+.\d+)");
+
+                result = speed.Groups[2].Value;
+
+            }
+
+
+            return result;
         }
 
 
         public static string GetPosition(this string line)
         {
-            var position = Regex.Match(line, @"(Status Position - :)(\d+.\d+)");
 
-            return position.Groups[2].Value;
+            string result = "";
 
+            if (line != null)
+            {
+
+                var position = Regex.Match(line, @"(Status Position - :)(\d+.\d+)");
+
+            result =  position.Groups[2].Value;
+            }
+
+
+            return result;
         }
 
 
