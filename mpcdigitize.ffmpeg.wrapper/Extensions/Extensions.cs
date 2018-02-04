@@ -17,9 +17,9 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
             if (line != null)
             {
 
+                
 
-
-                var frame = Regex.Match(line, @"(frame=) (\d+)");
+                var frame = Regex.Match(line, @"(frame=)  (\d+)|(frame=) (\d+)");
                 result =  frame.Groups[2].Value;
 
             }
@@ -55,7 +55,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
 
             if (line != null)
             {
-                var size = Regex.Match(line, @"(size=) (\d+)");
+                var size = Regex.Match(line, @"(size=)(\d+)");
 
                 result = size.Groups[2].Value;
 
@@ -96,7 +96,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
             if (line != null)
             {
 
-                var bitrate = Regex.Match(line, @"(bitrate=) (\d+.\d+)");
+                var bitrate = Regex.Match(line, @"(bitrate=) (\d+.\d+)|(bitrate=)(\d+.\d+)");
 
                 result =  bitrate.Groups[2].Value;
             }
