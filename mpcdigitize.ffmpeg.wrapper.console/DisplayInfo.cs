@@ -12,7 +12,7 @@ namespace ConsoleApplication
 
         public void DisplayProgress(object sender, EncodingEventArgs e)
         {
-            Console.WriteLine("HANDLER : Progress > " + e.Progress + "  DATA > " + e.Data);
+            Console.WriteLine("HANDLER 2 : Progress > " + e.Progress + "  DATA > " + e.Data);
 
         }
     }
