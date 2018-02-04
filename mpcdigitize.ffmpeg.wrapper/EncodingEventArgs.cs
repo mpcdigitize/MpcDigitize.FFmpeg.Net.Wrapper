@@ -8,8 +8,15 @@ namespace mpcdigitize.ffmpeg.wrapper
 {
     public class EncodingEventArgs: EventArgs
     {
+        
 
-        public double Progress { get; set;}
+        public string Frame { get; set; }
+        public string Fps { get; set; }
+        public string Size { get; set; }
+        public double TimeInSeconds { get; set; }
+        public string Bitrate { get; set; }
+        public string Speed { get; set;}
+        public string Position { get; set;}
         public string Data { get; set;} 
        
     }
