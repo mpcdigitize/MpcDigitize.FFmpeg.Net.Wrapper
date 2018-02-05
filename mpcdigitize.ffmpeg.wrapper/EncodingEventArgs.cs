@@ -14,11 +14,12 @@ namespace mpcdigitize.ffmpeg.wrapper
         public string Fps { get; set; }
         public string Size { get; set; }
         public string Time { get; set; }
-        public string TimeInSeconds { get; set; }
+       
         public string Bitrate { get; set; }
         public string Speed { get; set;}
-        public string Position { get; set;}
+        public string Quantizer { get; set; }
         public string Data { get; set;}
+        public double Seconds { get; set; }
      
 
     }

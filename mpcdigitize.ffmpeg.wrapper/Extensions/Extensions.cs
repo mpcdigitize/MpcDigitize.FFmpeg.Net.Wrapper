@@ -41,7 +41,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
             {
 
                 replaceLine = Regex.Replace(line, "q=", "q= ");
-                var quantizer = Regex.Match(replaceLine, @"(q=) +(\d+)");
+                var quantizer = Regex.Match(replaceLine, @"(q=) +(\d+\.\d+)");
 
                 result = quantizer.Groups[2].Value;
 
@@ -150,24 +150,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
         }
 
 
-        public static string GetPosition(this string line)
-        {
-
-            string result = "";
-
-            if (line != null)
-            {
-
-                var position = Regex.Match(line, @"(Status Position - :)(\d+.\d+)");
-
-            result =  position.Groups[2].Value;
-            }
-
-
-            return result;
-        }
-
-
+      
         public static double GetProgress(this string line)
         {
 
@@ -196,6 +179,22 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
 
             return progress;
 
+
+
+        }
+
+
+        public static double ParseTotalSeconds(this string time)
+        {
+            double totalSeconds = 0;
+
+            TimeSpan result;
+
+            if (TimeSpan.TryParse(time, out result))
+            {
+                totalSeconds = result.TotalSeconds;
+            }
+            return totalSeconds;
 
 
         }
