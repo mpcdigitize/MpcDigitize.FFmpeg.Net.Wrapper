@@ -13,26 +13,45 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
         public static string GetFrame(this string line)
         {
             string result = "";
+            string replaceLine = "";
 
             if (line != null)
             {
 
-                
+                replaceLine = Regex.Replace(line, "frame=", "frame= ");
+                var frame = Regex.Match(replaceLine, @"(frame=) +(\d+)");
 
-                var frame = Regex.Match(line, @"(frame=) +(\d+)");
+                result = frame.Groups[2].Value;
 
-                //while (frame.Success)
-                //{
-                    result = frame.Groups[2].Value;
-                //    frame.NextMatch();
-                //}
-                
 
             }
 
+         
+                return result;
+     
+
+        }
+
+
+        public static string GetDuration(this string line)
+        {
+            string result = "";
+            string replaceLine = "";
+
+            if (line != null)
+            {
+
+                replaceLine = Regex.Replace(line, "duration=", "duration= ");
+                var frame = Regex.Match(replaceLine, @"(frame=) +(\d+)");
+
+                result = frame.Groups[2].Value;
+
+
+            }
+
+
             return result;
 
-           
 
         }
 
