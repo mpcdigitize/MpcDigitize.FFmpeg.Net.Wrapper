@@ -130,35 +130,20 @@ namespace mpcdigitize.ffmpeg.wrapper
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
-            // var data = e.Data;
-
-            //using (StreamReader reader = e.Data)
-            //{
-            //    while (!reader.EndOfStream)
-            //    {
-            //        string readerLine = reader.ReadLine();
-
-            //    }
-            //this._encodingStats = new EncodingStats();
-            //this._encodingStats.Data = e.Data;
-            //this._encodingStats.Progress = data.GetProgress();
+          
             OnVideoEncoding(new EncodingEventArgs() {
 
                 Frame = e.Data.GetRegexValue(RegexKey.Frame,RegexGroup.Two),             
-                Fps = e.Data.GetRegexValue(RegexKey.Frame, RegexGroup.Two),
+                Fps = e.Data.GetRegexValue(RegexKey.Fps, RegexGroup.Two),
                 Size = e.Data.GetRegexValue(RegexKey.Size, RegexGroup.Two),
                 Time = e.Data.GetRegexValue(RegexKey.Time, RegexGroup.Two),
                 Bitrate = e.Data.GetRegexValue(RegexKey.Bitrate, RegexGroup.Two),
                 Speed = e.Data.GetRegexValue(RegexKey.Speed, RegexGroup.Two),
                 Quantizer = e.Data.GetRegexValue(RegexKey.Quantizer, RegexGroup.Two),
                 Progress = e.Data.GetRegexValue(RegexKey.Time, RegexGroup.Two).ParseTotalSeconds(),
-                
-
-                 Data = e.Data } );
+                Data = e.Data } );
         
-            // Console.WriteLine("DATA : " + this._encodingStats.Data);
-            // Console.WriteLine("DATA : " + this._encodingStats.Progress);
-
+         
 
 
         }
