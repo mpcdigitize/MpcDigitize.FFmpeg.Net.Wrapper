@@ -146,7 +146,7 @@ namespace mpcdigitize.ffmpeg.wrapper
                 Frame = e.Data.GetFrame(),
                 Fps = e.Data.GetFps(),
                 Size = e.Data.GetSize(),
-                TimeInSeconds = e.Data.GetTime(),
+                Time = e.Data.GetTime(),
                 Bitrate = e.Data.GetBitrate(),
                 Speed = e.Data.GetSpeed(),
                 Position = e.Data.GetPosition(),

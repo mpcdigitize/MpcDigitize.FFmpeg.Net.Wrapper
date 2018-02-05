@@ -19,8 +19,14 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
 
                 
 
-                var frame = Regex.Match(line, @"(frame=)  (\d+)|(frame=) (\d+)");
-                result =  frame.Groups[2].Value;
+                var frame = Regex.Match(line, @"(frame=) +(\d+)");
+
+                //while (frame.Success)
+                //{
+                    result = frame.Groups[2].Value;
+                //    frame.NextMatch();
+                //}
+                
 
             }
 
@@ -55,7 +61,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
 
             if (line != null)
             {
-                var size = Regex.Match(line, @"(size=)(\d+)");
+                var size = Regex.Match(line, @"(size=) +(\d+\w+)");
 
                 result = size.Groups[2].Value;
 
@@ -92,11 +98,12 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
         {
 
             string result = "";
+            string replaceLine = "";
 
             if (line != null)
             {
-
-                var bitrate = Regex.Match(line, @"(bitrate=) (\d+.\d+)|(bitrate=)(\d+.\d+)");
+                replaceLine = Regex.Replace(line, "bitrate=", "bitrate= ");        
+                var bitrate = Regex.Match(replaceLine, @"(bitrate=) +(\d+.\d+\w+\/\w+)");
 
                 result =  bitrate.Groups[2].Value;
             }
@@ -109,11 +116,12 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
         {
 
             string result = "";
+            string replaceLine = "";
 
             if (line != null)
             {
-
-                var speed = Regex.Match(line, @"(speed=)(\d+.\d+)");
+                replaceLine = Regex.Replace(line, "speed=", "speed= ");
+                var speed = Regex.Match(replaceLine, @"(speed=) +(\d+.\d+\w+)");
 
                 result = speed.Groups[2].Value;
 
