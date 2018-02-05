@@ -19,7 +19,7 @@ namespace mpcdigitize.ffmpeg.wrapper
         public string Speed { get; set;}
         public string Quantizer { get; set; }
         public string Data { get; set;}
-        public double Seconds { get; set; }
+        public double Progress { get; set; }
      
 
     }

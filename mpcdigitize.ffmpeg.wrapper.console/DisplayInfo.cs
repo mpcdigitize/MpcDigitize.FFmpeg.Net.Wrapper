@@ -28,8 +28,8 @@ namespace ConsoleApplication
             //Console.WriteLine("Frame {0} Fps {1} Size {2}", e.Frame, e.Fps, e.Size);
             //Console.WriteLine("Frame {0} Fps {1} Size {2} TimeInseconds {3} ", e.Frame, e.Fps, e.Size, e.TimeInSeconds);
             //Console.WriteLine("Frame {0} Fps {1} Size {2} TimeInseconds {3} Bitrate {4}", e.Frame, e.Fps, e.Size, e.TimeInSeconds, e.Bitrate);
-            Console.WriteLine("Frame {0} Fps {1} Size {2} Time {3} Bitrate {4} Speed {5} Quantizer {6} ProgressInSeconds {7}", e.Frame, e.Fps, e.Size, e.Time, e.Bitrate, e.Speed, e.Quantizer, e.Seconds);
-            Console.WriteLine(e.Data);
+            Console.WriteLine("Frame {0} Fps {1} Size {2} Time {3} Bitrate {4} Speed {5} Quantizer {6} Progress {7}", e.Frame, e.Fps, e.Size, e.Time, e.Bitrate, e.Speed, e.Quantizer, e.Progress);
+          //  Console.WriteLine(e.Data);
 
            // Console.WriteLine(e.Frame + " - " + e.Fps + " - " + e.Size + " - " + e.Time + " - " + e.Bitrate + " - " + e.Speed);
 

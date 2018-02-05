@@ -95,14 +95,10 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
             if (line != null)
             {
 
-                // double seconds = 0;
+              
                 var time = Regex.Match(line, @"(time=)(\d+:\d+:\d+.\d+)");
-
-
-                //seconds = TimeSpan.Parse(time.Groups[2].Value).TotalSeconds;
-
                 result =  time.Groups[2].Value;
-                // return seconds;
+                
 
             }
 
@@ -151,37 +147,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
 
 
       
-        public static double GetProgress(this string line)
-        {
-
-            double progress = 0;
-
-            try
-            {
-               
-
-
-                string[] split = line.Split(' ');
-
-
-                foreach (var row in split)
-                {
-                    if (row.StartsWith("time="))
-                    {
-                        var time = row.Split('=');
-                        progress = TimeSpan.Parse(time[1]).TotalSeconds;
-                     //   Console.WriteLine("Status Position - :" + Progress);
-                    }
-                }
-            }
-            catch { }
-
-
-            return progress;
-
-
-
-        }
+    
 
 
         public static double ParseTotalSeconds(this string time)

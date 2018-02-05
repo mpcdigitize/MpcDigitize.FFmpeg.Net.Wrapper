@@ -151,7 +151,7 @@ namespace mpcdigitize.ffmpeg.wrapper
                 Bitrate = e.Data.GetBitrate(),
                 Speed = e.Data.GetSpeed(),
                 Quantizer = e.Data.GetQuantizer(),
-                Seconds = e.Data.GetTime().ParseTotalSeconds(),
+                Progress = e.Data.GetTime().ParseTotalSeconds(),
                 
 
                  Data = e.Data } );
