@@ -96,7 +96,8 @@ namespace mpcdigitize.ffmpeg.wrapper
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
            
-            var arguments = _arguments.GetValue(videoResize.ToString()) +
+            var arguments = " -v quiet -stats " +
+                            _arguments.GetValue(videoResize.ToString()) +
                             _arguments.GetValue(videoEncoder.ToString()) +
                             _arguments.GetValue(videoPreset.ToString()) +
                             _arguments.GetValue(videoConstantRateFactor.ToString()) +

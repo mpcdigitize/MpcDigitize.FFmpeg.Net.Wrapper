@@ -150,7 +150,7 @@ namespace mpcdigitize.ffmpeg.wrapper
                 Time = e.Data.GetTime(),
                 Bitrate = e.Data.GetBitrate(),
                 Speed = e.Data.GetSpeed(),
-                Duration = e.Data.GetDuration(),
+                
                 Data = e.Data } );
         
             // Console.WriteLine("DATA : " + this._encodingStats.Data);

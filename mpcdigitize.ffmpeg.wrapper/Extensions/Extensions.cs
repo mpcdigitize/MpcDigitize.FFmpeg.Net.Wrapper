@@ -32,8 +32,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
 
         }
 
-
-        public static string GetDuration(this string line)
+        public static string GetQuantizer(this string line)
         {
             string result = "";
             string replaceLine = "";
@@ -41,10 +40,10 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
             if (line != null)
             {
 
-                replaceLine = Regex.Replace(line, "duration=", "duration= ");
-                var frame = Regex.Match(replaceLine, @"(frame=) +(\d+)");
+                replaceLine = Regex.Replace(line, "q=", "q= ");
+                var quantizer = Regex.Match(replaceLine, @"(q=) +(\d+)");
 
-                result = frame.Groups[2].Value;
+                result = quantizer.Groups[2].Value;
 
 
             }
