@@ -11,7 +11,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
     public static class Extensions
     {
 
-        public static string GetRegexValue(this string line, RegexKey regexKey)
+        public static string GetRegexValue(this string line, RegexKey regexKey, RegexGroup regexGroup)
         {
             string result = "";
             string replaceLine = "";
@@ -25,7 +25,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
                 replaceLine = Regex.Replace(line, keys.OriginalKey, keys.ReplaceKey);
                 var frame = Regex.Match(replaceLine, keys.RegexSearchKey);
 
-                result = frame.Groups[2].Value;
+                result = frame.Groups[(int)regexGroup].Value;
 
 
             }

@@ -144,15 +144,14 @@ namespace mpcdigitize.ffmpeg.wrapper
             //this._encodingStats.Progress = data.GetProgress();
             OnVideoEncoding(new EncodingEventArgs() {
 
-                Frame = e.Data.GetRegexSearchPattern(RegexKey.Frame),
-               // Frame = e.Data.GetFrame(),
-                Fps = e.Data.GetFps(),
-                Size = e.Data.GetSize(),
-                Time = e.Data.GetTime(),
-                Bitrate = e.Data.GetBitrate(),
-                Speed = e.Data.GetSpeed(),
-                Quantizer = e.Data.GetQuantizer(),
-                Progress = e.Data.GetTime().ParseTotalSeconds(),
+                Frame = e.Data.GetRegexValue(RegexKey.Frame,RegexGroup.Two),             
+                Fps = e.Data.GetRegexValue(RegexKey.Frame, RegexGroup.Two),
+                Size = e.Data.GetRegexValue(RegexKey.Size, RegexGroup.Two),
+                Time = e.Data.GetRegexValue(RegexKey.Time, RegexGroup.Two),
+                Bitrate = e.Data.GetRegexValue(RegexKey.Bitrate, RegexGroup.Two),
+                Speed = e.Data.GetRegexValue(RegexKey.Speed, RegexGroup.Two),
+                Quantizer = e.Data.GetRegexValue(RegexKey.Quantizer, RegexGroup.Two),
+                Progress = e.Data.GetRegexValue(RegexKey.Time, RegexGroup.Two).ParseTotalSeconds(),
                 
 
                  Data = e.Data } );

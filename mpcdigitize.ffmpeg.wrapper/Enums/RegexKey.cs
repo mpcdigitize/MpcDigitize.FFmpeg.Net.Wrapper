@@ -14,7 +14,7 @@ namespace mpcdigitize.ffmpeg.wrapper.Enums
         Size,
         Bitrate,
         Speed,
-        Qunatizer,
+        Quantizer,
         Progress
 
 
