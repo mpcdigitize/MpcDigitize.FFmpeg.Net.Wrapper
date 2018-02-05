@@ -1,4 +1,5 @@
-﻿using mpcdigitize.ffmpeg.wrapper.Extensions;
+﻿using mpcdigitize.ffmpeg.wrapper.Enums;
+using mpcdigitize.ffmpeg.wrapper.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -143,8 +144,8 @@ namespace mpcdigitize.ffmpeg.wrapper
             //this._encodingStats.Progress = data.GetProgress();
             OnVideoEncoding(new EncodingEventArgs() {
 
-
-                Frame = e.Data.GetFrame(),
+                Frame = e.Data.GetRegexSearchPattern(RegexKey.Frame),
+               // Frame = e.Data.GetFrame(),
                 Fps = e.Data.GetFps(),
                 Size = e.Data.GetSize(),
                 Time = e.Data.GetTime(),

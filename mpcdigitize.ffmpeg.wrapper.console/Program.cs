@@ -16,6 +16,18 @@ namespace ConsoleApplication
     {
         static void Main(string[] args)
         {
+
+            //var patterns = new RegexPatterns();
+
+
+            //var keys = patterns.GetValue(mpcdigitize.ffmpeg.wrapper.Enums.RegexKey.Frame);
+
+            //Console.WriteLine(keys.OriginalKey + " " + keys.ReplaceKey + " " + keys.RegexSearchKey);
+
+
+            //Console.ReadLine();
+
+
             var arguments = new FfmpegArgumentsDictionary();
             //  var ffmpeg = new Ffmpeg(@"C:\ffmpeg\ffmpeg.exe");
             //  string inputFile = @"C:\input\testmp4.mp4";
@@ -30,7 +42,7 @@ namespace ConsoleApplication
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_10.mkv";
+            job.OutputFile = @"C:\videos\testConvert_11.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
             var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
@@ -38,7 +50,7 @@ namespace ConsoleApplication
 
             ffmpeg.VideoEncoding += dipl.DisplayProgress;
 
-            ffmpeg.DoWork(job);
+           ffmpeg.DoWork(job);
 
 
 

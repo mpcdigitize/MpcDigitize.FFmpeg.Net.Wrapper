@@ -6,17 +6,11 @@ using System.Threading.Tasks;
 
 namespace mpcdigitize.ffmpeg.wrapper.Enums
 {
-    public enum RegexKey
+    public enum RegexGroup
     {
-        Frame,
-        Fps,
-        Time,
-        Size,
-        Bitrate,
-        Speed,
-        Qunatizer,
-        Progress
-
-
+        All = 0,
+        One = 1,
+        Two = 2,
+        Three = 3
     }
 }
