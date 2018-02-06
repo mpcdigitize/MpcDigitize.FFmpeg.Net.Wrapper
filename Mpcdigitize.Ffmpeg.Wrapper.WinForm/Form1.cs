@@ -45,15 +45,21 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = (BackgroundWorker)sender;
-            for (int i = 0; i < 100; ++i)
-            {
-                // report your progres
-                worker.ReportProgress(i);
 
-                // pretend like this a really complex calculation going on eating up CPU time
-                System.Threading.Thread.Sleep(100);
-            }
-            e.Result = "42";
+
+            this.Encode();
+
+
+            //for (int i = 0; i < 100; ++i)
+            //{
+            //    // report your progres
+            //    worker.ReportProgress(i);
+               
+
+            //    // pretend like this a really complex calculation going on eating up CPU time
+            //    System.Threading.Thread.Sleep(100);
+            //}
+            e.Result = "Completed";
         }
 
 
@@ -74,25 +80,34 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         }
 
-        private void button1_Click1(object sender, EventArgs e)
+
+
+        public void Encode()
         {
-
-
             var arguments = new FfmpegArgumentsDictionary();
             var job = new EncodingJob();
             var argsSelector = new ArgsSelector();
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_3.mkv";
+            job.OutputFile = @"C:\videos\testConvert_4.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
             var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
 
-            ffmpeg.VideoEncoding += ShowMessage;
+           // ffmpeg.VideoEncoding += ShowMessage;
 
             ffmpeg.DoWork(job);
+
+        }
+
+
+        private void button1_Click1(object sender, EventArgs e)
+        {
+
+
+            
 
             //Console.WriteLine("Completed");
             // MessageBox.Show("Completed");
@@ -115,7 +130,9 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
                 tw.WriteLine(output);
                 tw.Close();
             }
-           // listBox1.Items.Add(e.Progress);
+            // listBox1.Items.Add(e.Progress);
+
+         
         }
 
        
