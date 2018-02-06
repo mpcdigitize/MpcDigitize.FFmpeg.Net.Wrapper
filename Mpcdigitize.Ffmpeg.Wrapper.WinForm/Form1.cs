@@ -33,7 +33,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_1.mkv";
+            job.OutputFile = @"C:\videos\testConvert_2.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
@@ -43,8 +43,8 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
             ffmpeg.DoWork(job);
 
-            Console.WriteLine("Completed");
-
+            //Console.WriteLine("Completed");
+            MessageBox.Show("Completed");
         }
 
 

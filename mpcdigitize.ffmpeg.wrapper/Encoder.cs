@@ -76,7 +76,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             this._process.StartInfo.UseShellExecute = false;
             this._process.StartInfo.RedirectStandardError = true;
             this._process.StartInfo.RedirectStandardOutput = true;
-           // this._process.StartInfo.CreateNoWindow = true;
+            this._process.StartInfo.CreateNoWindow = true;
 
 
             this._process.Start();
