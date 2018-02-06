@@ -13,36 +13,14 @@ namespace mpcdigitize.ffmpeg.wrapper
     public class FfmpegEncoder
     {
         private Process _process;
-        private StreamReader _reader;
+      
         private EncodingStats _encodingStats;
 
 
-       // public EncodingStats EncodingStats { get; set;}
-        //{
-        //    get
-        //    {
-        //        return _encodingStats;
-        //    }
-        //    set
-        //    {
-        //        //if (_encodingStats != value)
-                //{
-                //    EncodingEventArgs args = new EncodingEventArgs();
-                //    args.Duration = this._encodingStats.Duration;
-                //    args.Progress = this._encodingStats.Progress;
-
-                //    VideoEncoding(this, args);
+       
 
 
-                //}
-
-            //}
-
-        //}
-
-
-
-        public string ConsoleOutput;
+       // public string ConsoleOutput;
         private string _encoderPath;
 
 
@@ -61,11 +39,11 @@ namespace mpcdigitize.ffmpeg.wrapper
         {
 
             this._process.EnableRaisingEvents = true;
-            this._process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_OutputDataReceived);
+            this._process.OutputDataReceived += new DataReceivedEventHandler(process_OutputDataReceived);
            
-            this._process.ErrorDataReceived += new System.Diagnostics.DataReceivedEventHandler(process_ErrorDataReceived);
+            this._process.ErrorDataReceived += new DataReceivedEventHandler(process_ErrorDataReceived);
 
-            this._process.Exited += new System.EventHandler(process_Exited);
+            this._process.Exited += new EventHandler(process_Exited);
 
             this._process.StartInfo.FileName = _encoderPath;
 
@@ -101,19 +79,6 @@ namespace mpcdigitize.ffmpeg.wrapper
 
             VideoEncoding?.Invoke(this, e);
 
-            //EncodingEventArgs args = new EncodingEventArgs();
-            //args.Data = this._encodingStats.Data;
-            //args.Progress = this._encodingStats.Progress;
-
-           // Console.WriteLine("OnVideoEncoding : Progress > " + e.Progress + "  DATA > " + e.Data);
-
-            //    VideoEncoding(this, new EncodingEventArgs(encodingStats));
-
-
-
-            //}
-
-
         }
 
 
@@ -148,7 +113,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 
         }
 
-        //}
+     
 
         public void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
