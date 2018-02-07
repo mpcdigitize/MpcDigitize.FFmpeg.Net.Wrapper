@@ -33,6 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pbStatus = new System.Windows.Forms.ProgressBar();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -78,11 +80,30 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "label2";
             // 
+            // pbStatus
+            // 
+            this.pbStatus.Location = new System.Drawing.Point(117, 299);
+            this.pbStatus.Name = "pbStatus";
+            this.pbStatus.Size = new System.Drawing.Size(293, 23);
+            this.pbStatus.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(285, 87);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 366);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.pbStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label1);
@@ -102,6 +123,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ProgressBar pbStatus;
+        private System.Windows.Forms.Button button2;
     }
 }
 

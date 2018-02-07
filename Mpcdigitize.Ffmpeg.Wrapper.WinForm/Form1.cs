@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,22 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 {
     public partial class Form1 : Form
     {
+
+        delegate void StartProcessHandler(object sender,EncodingEventArgs e);
+        int _Max;
+
+        private void StartProcess()
+        {
+           
+
+                this.Encode();
+               // this.Refresh();
+               
+    
+        }
+
+
+
 
         private BackgroundWorker bw;
         int _progress;
@@ -118,8 +135,28 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         {
             //  this.label2.Text = e.Progress.ToString();
 
+            //this.Refresh();
 
-            _progress = (int)e.Progress;
+
+            if (this.pbStatus.InvokeRequired)
+            {
+                StartProcessHandler sph = new StartProcessHandler(ShowMessage);
+                Invoke(sph);
+            }
+            else
+            {
+
+
+                this.pbStatus.Maximum = 100;
+                this.pbStatus.Value = (int)e.Progress;
+                MessageBox.Show("Done");
+            }
+            //for (int i = 0; i <= _Max; i++)
+            //{
+            //    Thread.Sleep(10);
+            //    this.lblOutput.Text = i.ToString();
+            //    this.pbStatus.Value = i;
+            //}
             //string output = "";
             //output = e.Data;
 
@@ -130,17 +167,20 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
             //    tw.WriteLine(output);
             //    tw.Close();
             //}
-       
 
-         
+
+
         }
 
-       
-        
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(new ThreadStart(StartProcess));
+            t.Start();
+        }
+    }
     }
 
 
 
    
-}
+
