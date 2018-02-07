@@ -17,6 +17,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
     {
 
         private BackgroundWorker bw;
+        int _progress;
 
         public Form1()
         {
@@ -24,7 +25,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
             this.bw = new BackgroundWorker();
             this.bw.DoWork += new DoWorkEventHandler(bw_DoWork);
-            this.bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);
+            this.bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);        
             this.bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
             this.bw.WorkerReportsProgress = true;
 
@@ -39,7 +40,8 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            this.label1.Text = e.ProgressPercentage.ToString() + "% complete";
+            this.label2.Text = e.ProgressPercentage.ToString() + "% complete";
+            
         }
 
         private void bw_DoWork(object sender, DoWorkEventArgs e)
@@ -53,7 +55,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
             //for (int i = 0; i < 100; ++i)
             //{
             //    // report your progres
-            //    worker.ReportProgress(i);
+            worker.ReportProgress(_progress);
                
 
             //    // pretend like this a really complex calculation going on eating up CPU time
@@ -75,10 +77,6 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         }
     
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
 
 
 
@@ -96,7 +94,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
             var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
 
-           // ffmpeg.VideoEncoding += ShowMessage;
+            ffmpeg.VideoEncoding += ShowMessage;
 
             ffmpeg.DoWork(job);
 
@@ -118,19 +116,21 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         public void ShowMessage(object sender, EncodingEventArgs e)
         {
+            //  this.label2.Text = e.Progress.ToString();
 
 
-            string output = "";
-            output = e.Data;
+            _progress = (int)e.Progress;
+            //string output = "";
+            //output = e.Data;
 
 
-            string path = @"C:\videos\testOutput.txt";
-            using (var tw = new StreamWriter(path, true))
-            {
-                tw.WriteLine(output);
-                tw.Close();
-            }
-            // listBox1.Items.Add(e.Progress);
+            //string path = @"C:\videos\testOutput.txt";
+            //using (var tw = new StreamWriter(path, true))
+            //{
+            //    tw.WriteLine(output);
+            //    tw.Close();
+            //}
+       
 
          
         }
