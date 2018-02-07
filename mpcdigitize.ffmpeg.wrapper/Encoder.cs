@@ -23,8 +23,11 @@ namespace mpcdigitize.ffmpeg.wrapper
        // public string ConsoleOutput;
         private string _encoderPath;
 
+       
 
-       // public event EventHandler VideoEncoded;
+       
+
+        // public event EventHandler VideoEncoded;
         public event EventHandler<EncodingEventArgs> VideoEncoding;
 
         public FfmpegEncoder(string encoderPath)
@@ -73,6 +76,8 @@ namespace mpcdigitize.ffmpeg.wrapper
 
 
         }
+
+       
 
         protected virtual void OnVideoEncoding(EncodingEventArgs e)
         {

@@ -17,21 +17,6 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
     public partial class Form1 : Form
     {
 
-        delegate void StartProcessHandler(object sender,EncodingEventArgs e);
-        int _Max;
-
-        private void StartProcess()
-        {
-           
-
-                this.Encode();
-               // this.Refresh();
-               
-    
-        }
-
-
-
 
         private BackgroundWorker bw;
         int _progress;
@@ -51,7 +36,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            this.label1.Text = "The answer is: " + e.Result.ToString();
+            this.label1.Text = "The job is: " + e.Result.ToString();
             this.button1.Enabled = true;
         }
 
@@ -67,17 +52,10 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
             this.Encode();
-
-
-            //for (int i = 0; i < 100; ++i)
-            //{
-            //    // report your progres
+          
             worker.ReportProgress(_progress);
                
 
-            //    // pretend like this a really complex calculation going on eating up CPU time
-            //    System.Threading.Thread.Sleep(100);
-            //}
             e.Result = "Completed";
         }
 
@@ -111,55 +89,19 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
             var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
 
-            ffmpeg.VideoEncoding += ShowMessage;
+            ffmpeg.VideoEncoding += GetProgress;           
 
             ffmpeg.DoWork(job);
 
         }
 
+ 
 
-        private void button1_Click1(object sender, EventArgs e)
+        public void GetProgress(object sender, EncodingEventArgs e)
         {
-
+            _progress = (int)e.Progress;
 
             
-
-            //Console.WriteLine("Completed");
-            // MessageBox.Show("Completed");
-        }
-
-      
-
-
-        public void ShowMessage(object sender, EncodingEventArgs e)
-        {
-            //  this.label2.Text = e.Progress.ToString();
-
-            //this.Refresh();
-
-
-            if (this.pbStatus.InvokeRequired)
-            {
-                StartProcessHandler sph = new StartProcessHandler(ShowMessage);
-                Invoke(sph);
-            }
-            else
-            {
-
-
-                this.pbStatus.Maximum = 100;
-                this.pbStatus.Value = (int)e.Progress;
-                MessageBox.Show("Done");
-            }
-            //for (int i = 0; i <= _Max; i++)
-            //{
-            //    Thread.Sleep(10);
-            //    this.lblOutput.Text = i.ToString();
-            //    this.pbStatus.Value = i;
-            //}
-            //string output = "";
-            //output = e.Data;
-
 
             //string path = @"C:\videos\testOutput.txt";
             //using (var tw = new StreamWriter(path, true))
@@ -172,12 +114,8 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Thread t = new Thread(new ThreadStart(StartProcess));
-            t.Start();
-        }
-    }
+      
+      }
     }
 
 
