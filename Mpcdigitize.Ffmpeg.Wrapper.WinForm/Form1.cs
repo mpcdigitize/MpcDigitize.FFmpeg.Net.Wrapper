@@ -19,19 +19,23 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
         private BackgroundWorker bw;
+        private FfmpegEncoder ffmpeg;
         int _progress;
 
         public Form1()
         {
             InitializeComponent();
 
+            this.ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
             this.bw = new BackgroundWorker();
             this.bw.DoWork += new DoWorkEventHandler(bw_DoWork);
             this.bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);        
             this.bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
             this.bw.WorkerReportsProgress = true;
 
+            this.ffmpeg.VideoEncoding += GetProgress;
             this.button1.Click += new EventHandler(button1_Click);
+            this.pbStatus.Maximum = 84;
         }
 
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -43,6 +47,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             this.label2.Text = e.ProgressPercentage.ToString() + "% complete";
+            this.pbStatus.Value = _progress;
             
         }
 
@@ -50,12 +55,13 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         {
             BackgroundWorker worker = (BackgroundWorker)sender;
 
-
+            
             this.Encode();
-          
-            worker.ReportProgress(_progress);
-               
+            var val = GetInt();
 
+            worker.ReportProgress(val);
+               
+            
             e.Result = "Completed";
         }
 
@@ -83,30 +89,39 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_4.mkv";
+            job.OutputFile = @"C:\videos\testConvert_8.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
-            var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
-
-            ffmpeg.VideoEncoding += GetProgress;           
-
+           
             ffmpeg.DoWork(job);
 
         }
 
- 
+
+        public int GetInt()
+        {
+            string path = @"C:\videos\testOutput4.txt";
+            using (var tw = new StreamWriter(path, true))
+            {
+                tw.WriteLine(_progress);
+                tw.Close();
+            }
+
+            return _progress;
+        }
 
         public void GetProgress(object sender, EncodingEventArgs e)
         {
             _progress = (int)e.Progress;
+           // _progress = 50;
 
-            
 
-            //string path = @"C:\videos\testOutput.txt";
+
+            //string path = @"C:\videos\testOutput2.txt";
             //using (var tw = new StreamWriter(path, true))
             //{
-            //    tw.WriteLine(output);
+            //    tw.WriteLine(_progress);
             //    tw.Close();
             //}
 
