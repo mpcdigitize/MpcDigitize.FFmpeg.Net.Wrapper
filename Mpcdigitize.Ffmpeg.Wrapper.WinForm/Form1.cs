@@ -58,15 +58,16 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         {
             BackgroundWorker worker = (BackgroundWorker)sender;
 
-            if (bw.CancellationPending)
-            {
-                e.Cancel = true;
+            //if (bw.CancellationPending)
+            //{
+            //    e.Cancel = true;
+            //    ffmpeg.Cancel();
               
-            }
-            else
-            {
+            //}
+            //else
+            //{
                 this.Encode();
-            }
+            //}
             
 
 
@@ -100,7 +101,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_1.mkv";
+            job.OutputFile = @"C:\videos\testConvert_7.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
@@ -133,7 +134,9 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         private void button2_Click(object sender, EventArgs e)
         {
-            bw.CancelAsync();
+
+            ffmpeg.Cancel();
+           // bw.CancelAsync();
          //   button2.Enabled = false;
         }
     }

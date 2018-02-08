@@ -41,8 +41,25 @@ namespace mpcdigitize.ffmpeg.wrapper
 
         public void Cancel()
         {
-            this._process.CancelErrorRead() ;
-            this._process.CancelOutputRead();
+            //this._process.CancelErrorRead() ;
+            //this._process.CancelOutputRead();
+            //this._process.Close();
+
+            StreamWriter myStreamWriter = this._process.StandardInput;
+            myStreamWriter.WriteLine("q");
+
+
+            //Process killFfmpeg = new Process();
+            //ProcessStartInfo taskkillStartInfo = new ProcessStartInfo
+            //{
+            //    FileName = "taskkill",
+            //    Arguments = "/F /IM ffmpeg.exe",
+            //    UseShellExecute = false,
+            //    CreateNoWindow = true
+            //};
+
+            //killFfmpeg.StartInfo = taskkillStartInfo;
+            //killFfmpeg.Start();
 
         }
 
@@ -65,6 +82,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             this._process.StartInfo.UseShellExecute = false;
             this._process.StartInfo.RedirectStandardError = true;
             this._process.StartInfo.RedirectStandardOutput = true;
+            this._process.StartInfo.RedirectStandardInput = true;
             this._process.StartInfo.CreateNoWindow = true;
          
 
