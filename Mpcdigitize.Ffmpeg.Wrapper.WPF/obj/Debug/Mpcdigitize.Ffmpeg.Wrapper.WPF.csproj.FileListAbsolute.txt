@@ -1,0 +1,16 @@
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\bin\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF.exe.config
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\bin\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF.exe
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\bin\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF.pdb
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\bin\Debug\mpcdigitize.ffmpeg.wrapper.dll
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\bin\Debug\mpcdigitize.ffmpeg.wrapper.pdb
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF.csprojResolveAssemblyReference.cache
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\MainWindow.g.cs
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\App.g.cs
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF_MarkupCompile.cache
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF_MarkupCompile.lref
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\MainWindow.baml
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF.g.resources
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF.Properties.Resources.resources
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF.csproj.GenerateResource.Cache
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF.exe
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WPF\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WPF.pdb

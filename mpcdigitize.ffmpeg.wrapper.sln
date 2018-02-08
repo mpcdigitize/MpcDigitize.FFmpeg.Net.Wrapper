@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mpcdigitize.Ffmpeg.Wrapper.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mpcdigitize.Ffmpeg.Wrapper.WinForm", "Mpcdigitize.Ffmpeg.Wrapper.WinForm\Mpcdigitize.Ffmpeg.Wrapper.WinForm.csproj", "{26BBCC23-1DD4-4C79-8A90-E3AF05962BE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mpcdigitize.Ffmpeg.Wrapper.WPF", "Mpcdigitize.Ffmpeg.Wrapper.WPF\Mpcdigitize.Ffmpeg.Wrapper.WPF.csproj", "{63B542F4-9611-40DB-B98A-B9807E500F3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{26BBCC23-1DD4-4C79-8A90-E3AF05962BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26BBCC23-1DD4-4C79-8A90-E3AF05962BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26BBCC23-1DD4-4C79-8A90-E3AF05962BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63B542F4-9611-40DB-B98A-B9807E500F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63B542F4-9611-40DB-B98A-B9807E500F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63B542F4-9611-40DB-B98A-B9807E500F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63B542F4-9611-40DB-B98A-B9807E500F3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
