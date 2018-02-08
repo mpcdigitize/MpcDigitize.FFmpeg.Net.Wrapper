@@ -39,6 +39,19 @@ namespace mpcdigitize.ffmpeg.wrapper
         }
 
 
+        public void Pause()
+        {
+            StreamWriter myStreamWriter = this._process.StandardInput;
+            myStreamWriter.WriteLine("STOP");
+        }
+
+        public void Resume()
+        {
+            StreamWriter myStreamWriter = this._process.StandardInput;
+            myStreamWriter.WriteLine("CONT");
+        }
+
+
         public void Cancel()
         {
             //this._process.CancelErrorRead() ;
