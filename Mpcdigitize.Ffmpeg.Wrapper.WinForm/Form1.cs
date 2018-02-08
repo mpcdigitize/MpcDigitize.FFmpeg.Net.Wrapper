@@ -46,8 +46,10 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            this.label2.Text = e.ProgressPercentage.ToString() + "% complete";
-            this.pbStatus.Value = _progress;
+            var myObject = (EncodingStats)e.UserState;
+
+            this.label2.Text = e.ProgressPercentage.ToString() + "% complete" + " Size: " + myObject.Size + " Speed: " + myObject.Speed;
+            this.pbStatus.Value = e.ProgressPercentage;
             
         }
 
@@ -57,11 +59,11 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
             
             this.Encode();
-            var val = GetInt();
 
-            worker.ReportProgress(val);
-               
-            
+
+            //worker.ReportProgress(val);
+
+
             e.Result = "Completed";
         }
 
@@ -89,7 +91,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_8.mkv";
+            job.OutputFile = @"C:\videos\testConvert_4.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
@@ -101,22 +103,23 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         public int GetInt()
         {
-            string path = @"C:\videos\testOutput4.txt";
-            using (var tw = new StreamWriter(path, true))
-            {
-                tw.WriteLine(_progress);
-                tw.Close();
-            }
+            //string path = @"C:\videos\testOutput4.txt";
+            //using (var tw = new StreamWriter(path, true))
+            //{
+            //    tw.WriteLine(_progress);
+            //    tw.Close();
+            //}
 
             return _progress;
         }
 
         public void GetProgress(object sender, EncodingEventArgs e)
         {
-            _progress = (int)e.Progress;
-           // _progress = 50;
+          //  _progress = (int)e.Progress;
+            // _progress = 50;
 
-
+           
+            bw.ReportProgress((int)e.Progress, new EncodingStats {Size = e.Size,Frame = e.Frame, Speed = e.Speed });
 
             //string path = @"C:\videos\testOutput2.txt";
             //using (var tw = new StreamWriter(path, true))

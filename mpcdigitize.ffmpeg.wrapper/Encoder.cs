@@ -100,7 +100,7 @@ namespace mpcdigitize.ffmpeg.wrapper
         public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
-          
+            //raising event          
             OnVideoEncoding(new EncodingEventArgs() {
 
                 Frame = e.Data.GetRegexValue(RegexKey.Frame,RegexGroup.Two),             
