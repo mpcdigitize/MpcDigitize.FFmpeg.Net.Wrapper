@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="84,66,0,0" VerticalAlignment="Top" Width="74" Click="button1_Click_1"/>
+        <Button x:Name="button1" Content="Start" HorizontalAlignment="Left" Margin="84,66,0,0" VerticalAlignment="Top" Width="74" Click="button1_Click_1"/>
         <ProgressBar x:Name="pbStatus" HorizontalAlignment="Left" Height="10" Margin="84,194,0,0" VerticalAlignment="Top" Width="392" RenderTransformOrigin="0.5,0.5">
             <ProgressBar.RenderTransform>
                 <TransformGroup>
@@ -20,6 +20,7 @@
         </ProgressBar>
         <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="84,149,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Label" HorizontalAlignment="Left" Margin="101,233,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Cancel" HorizontalAlignment="Left" Margin="311,66,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

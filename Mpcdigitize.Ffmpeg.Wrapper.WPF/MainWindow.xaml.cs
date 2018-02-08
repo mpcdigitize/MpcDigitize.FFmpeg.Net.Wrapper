@@ -88,7 +88,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WPF
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_6.mkv";
+            job.OutputFile = @"C:\videos\testConvert_8.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
@@ -107,7 +107,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WPF
 
 
             bw.ReportProgress((int)e.Progress, new EncodingStats { Size = e.Size, Frame = e.Frame, Speed = e.Speed });
-
+            
             //string path = @"C:\videos\testOutput2.txt";
             //using (var tw = new StreamWriter(path, true))
             //{
@@ -121,6 +121,8 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WPF
 
         private void button1_Click_1(object sender, RoutedEventArgs e)
         {
+
+
 
 
             if (!this.bw.IsBusy)
