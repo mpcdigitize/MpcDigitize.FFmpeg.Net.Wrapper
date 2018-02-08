@@ -41,6 +41,8 @@ namespace mpcdigitize.ffmpeg.wrapper
 
         public void Pause()
         {
+
+         
             StreamWriter myStreamWriter = this._process.StandardInput;
             myStreamWriter.WriteLine("STOP");
         }
@@ -97,7 +99,8 @@ namespace mpcdigitize.ffmpeg.wrapper
             this._process.StartInfo.RedirectStandardOutput = true;
             this._process.StartInfo.RedirectStandardInput = true;
             this._process.StartInfo.CreateNoWindow = true;
-         
+            this._process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+
 
 
             this._process.Start();

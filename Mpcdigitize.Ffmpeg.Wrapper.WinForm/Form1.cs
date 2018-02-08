@@ -101,7 +101,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_8.mkv";
+            job.OutputFile = @"C:\videos\testConvert_9.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
