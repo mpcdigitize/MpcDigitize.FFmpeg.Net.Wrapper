@@ -20,7 +20,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         private BackgroundWorker bw;
         private FfmpegEncoder ffmpeg;
-        int _progress;
+  
 
         public Form1()
         {
@@ -91,7 +91,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_4.mkv";
+            job.OutputFile = @"C:\videos\testConvert_5.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
@@ -101,17 +101,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         }
 
 
-        public int GetInt()
-        {
-            //string path = @"C:\videos\testOutput4.txt";
-            //using (var tw = new StreamWriter(path, true))
-            //{
-            //    tw.WriteLine(_progress);
-            //    tw.Close();
-            //}
-
-            return _progress;
-        }
+    
 
         public void GetProgress(object sender, EncodingEventArgs e)
         {
