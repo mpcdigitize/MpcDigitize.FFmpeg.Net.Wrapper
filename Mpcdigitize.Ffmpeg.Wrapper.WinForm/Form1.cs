@@ -32,6 +32,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
             this.bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);        
             this.bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
             this.bw.WorkerReportsProgress = true;
+            this.bw.WorkerSupportsCancellation = true;
 
             this.ffmpeg.VideoEncoding += GetProgress;
             this.button1.Click += new EventHandler(button1_Click);
@@ -57,8 +58,16 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         {
             BackgroundWorker worker = (BackgroundWorker)sender;
 
+            if (bw.CancellationPending)
+            {
+                e.Cancel = true;
+              
+            }
+            else
+            {
+                this.Encode();
+            }
             
-            this.Encode();
 
 
             //worker.ReportProgress(val);
@@ -91,7 +100,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_5.mkv";
+            job.OutputFile = @"C:\videos\testConvert_1.mkv";
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
@@ -105,10 +114,10 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         public void GetProgress(object sender, EncodingEventArgs e)
         {
-          //  _progress = (int)e.Progress;
+            //  _progress = (int)e.Progress;
             // _progress = 50;
 
-           
+          
             bw.ReportProgress((int)e.Progress, new EncodingStats {Size = e.Size,Frame = e.Frame, Speed = e.Speed });
 
             //string path = @"C:\videos\testOutput2.txt";
@@ -124,7 +133,8 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            bw.CancelAsync();
+         //   button2.Enabled = false;
         }
     }
     }

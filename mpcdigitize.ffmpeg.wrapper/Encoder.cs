@@ -38,6 +38,14 @@ namespace mpcdigitize.ffmpeg.wrapper
 
         }
 
+
+        public void Cancel()
+        {
+            this._process.CancelErrorRead() ;
+            this._process.CancelOutputRead();
+
+        }
+
         public void DoWork(EncodingJob encodingJob)
         {
 
@@ -58,6 +66,7 @@ namespace mpcdigitize.ffmpeg.wrapper
             this._process.StartInfo.RedirectStandardError = true;
             this._process.StartInfo.RedirectStandardOutput = true;
             this._process.StartInfo.CreateNoWindow = true;
+         
 
 
             this._process.Start();
