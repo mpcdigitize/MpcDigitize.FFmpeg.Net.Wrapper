@@ -2,6 +2,9 @@
 using mpcdigitize.ffmpeg.wrapper;
 using Mpcdigitize.Ffmpeg.Wrapper;
 using Mpcdigitize.Ffmpeg.Wrapper.Enums;
+using MpcDigitize.Wtv.FFprobe.Wrapper;
+using MpcDigitize.Wtv.FFprobe.Wrapper.Enums;
+using MpcDigitize.Wtv.FFprobe.Wrapper.Extensions;
 using System;
 
 using System.Collections.Generic;
@@ -28,6 +31,17 @@ namespace ConsoleApplication
             //Console.ReadLine();
 
 
+            var ffprobe = new MetadataReader(@"C:\ffmpeg\ffprobe.exe");
+            var inputFile = @"C:\input\testWTVShort.wtv";
+
+            var output = ffprobe.DoWork(inputFile, OutputFormat.Json);
+
+            var result = output.GetMetadata().format.duration;
+            int xre = Convert.ToInt32(result);
+            Console.WriteLine(xre.ToString());
+           
+            
+
             var arguments = new FfmpegArgumentsDictionary();
             //  var ffmpeg = new Ffmpeg(@"C:\ffmpeg\ffmpeg.exe");
             //  string inputFile = @"C:\input\testmp4.mp4";
@@ -50,7 +64,7 @@ namespace ConsoleApplication
 
             ffmpeg.VideoEncoding += dipl.DisplayProgress;
 
-           ffmpeg.DoWork(job);
+        //   ffmpeg.DoWork(job);
 
 
 

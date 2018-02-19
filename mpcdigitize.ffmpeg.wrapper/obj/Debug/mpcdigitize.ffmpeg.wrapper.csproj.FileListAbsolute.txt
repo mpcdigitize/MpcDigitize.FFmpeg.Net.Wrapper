@@ -3,3 +3,7 @@
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\mpcdigitize.ffmpeg.wrapper.dll
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\mpcdigitize.ffmpeg.wrapper.pdb
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.csprojResolveAssemblyReference.cache
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.dll
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\Newtonsoft.Json.dll
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.pdb
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\Newtonsoft.Json.xml
