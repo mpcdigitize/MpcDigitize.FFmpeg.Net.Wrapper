@@ -37,8 +37,14 @@ namespace ConsoleApplication
             var output = ffprobe.DoWork(inputFile, OutputFormat.Json);
 
             var result = output.GetMetadata().format.duration;
-            int xre = Convert.ToInt32(result);
-            Console.WriteLine(xre.ToString());
+            var a = (int)Convert.ToDouble(result);
+            Console.WriteLine(result);
+            Console.WriteLine(a);
+            
+
+            
+           // xre = Int32.Parse(result);
+          //  Console.WriteLine(xre.ToString());
            
             
 

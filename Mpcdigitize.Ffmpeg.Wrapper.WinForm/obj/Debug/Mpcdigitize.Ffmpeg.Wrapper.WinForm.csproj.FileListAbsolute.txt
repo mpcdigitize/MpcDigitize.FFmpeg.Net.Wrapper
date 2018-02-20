@@ -9,3 +9,7 @@
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.csproj.GenerateResource.Cache
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.exe
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.pdb
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.dll
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\Newtonsoft.Json.dll
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.pdb
+\\TOWER\github\mpcdigitize.ffmpeg.wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\Newtonsoft.Json.xml

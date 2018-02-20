@@ -1,5 +1,8 @@
 ﻿using mpcdigitize.ffmpeg.wrapper;
 using Mpcdigitize.Ffmpeg.Wrapper.Enums;
+using MpcDigitize.Wtv.FFprobe.Wrapper;
+using MpcDigitize.Wtv.FFprobe.Wrapper.Enums;
+using MpcDigitize.Wtv.FFprobe.Wrapper.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,7 +39,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
             this.ffmpeg.VideoEncoding += GetProgress;
             this.button1.Click += new EventHandler(button1_Click);
-            this.pbStatus.Maximum = 84;
+           
         }
 
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -48,6 +51,15 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             var myObject = (EncodingStats)e.UserState;
+
+            var ffprobe = new MetadataReader(@"C:\ffmpeg\ffprobe.exe");
+
+            var InputFile = @"C:\input\testWTVShort.wtv";
+        
+            var output = ffprobe.DoWork(InputFile, OutputFormat.Json);
+            var result = output.GetMetadata().format.duration;
+
+            this.pbStatus.Maximum = (int)Convert.ToDouble(result);
 
             this.label2.Text = e.ProgressPercentage.ToString() + "% complete" + " Size: " + myObject.Size + " Speed: " + myObject.Speed;
             this.pbStatus.Value = e.ProgressPercentage;
@@ -99,9 +111,13 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
             var job = new EncodingJob();
             var argsSelector = new ArgsSelector();
 
+               
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_9.mkv";
+            job.OutputFile = @"C:\videos\testConvert_1.mkv";
+
+         
+
             job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
 
@@ -148,6 +164,11 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         private void button4_Click(object sender, EventArgs e)
         {
             ffmpeg.Resume();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
     }
