@@ -30,7 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MpcDigitize.Wtv.FFprobe.Wrapper">
+    <Reference Include="MpcDigitize.Wtv.FFprobe.Wrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\MpcDigitize.Wtv.FFprobe.Wrapper\MpcDigitize.Wtv.FFprobe.Wrapper\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />

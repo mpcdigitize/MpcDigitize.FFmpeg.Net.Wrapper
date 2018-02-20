@@ -114,7 +114,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
                
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_1.mkv";
+            job.OutputFile = @"C:\videos\testConvert_2.mkv";
 
          
 
