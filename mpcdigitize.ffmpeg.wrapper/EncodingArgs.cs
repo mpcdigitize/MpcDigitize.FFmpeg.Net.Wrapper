@@ -85,7 +85,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
             _arguments.Add("VerySlow", " -preset veryslow ");
 
             //Banner
-            _arguments.Add("HideBanner", " -preset slower ");
+            _arguments.Add("HideBanner", " -v quiet -stats ");
             _arguments.Add("ShowBanner", "");
 
         }
