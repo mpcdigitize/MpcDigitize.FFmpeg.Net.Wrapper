@@ -69,6 +69,8 @@ namespace mpcdigitize.ffmpeg.wrapper
 
             this._process.WaitForExit();
             this._process.Close();
+            
+             OnVideoEncoded(new EncodedEventArgs() {EncodingJob = encodingJob });
 
         }
 
