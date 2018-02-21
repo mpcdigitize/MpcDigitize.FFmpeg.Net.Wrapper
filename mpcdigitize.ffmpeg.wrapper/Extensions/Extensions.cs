@@ -23,9 +23,9 @@ namespace mpcdigitize.ffmpeg.wrapper.Extensions
             {
 
                 replaceLine = Regex.Replace(line, keys.OriginalKey, keys.ReplaceKey);
-                var frame = Regex.Match(replaceLine, keys.RegexSearchKey);
+                var match = Regex.Match(replaceLine, keys.RegexSearchKey);
 
-                result = frame.Groups[(int)regexGroup].Value;
+                result = match.Groups[(int)regexGroup].Value;
 
 
             }
