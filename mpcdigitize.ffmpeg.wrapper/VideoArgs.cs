@@ -60,6 +60,25 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
 
         }
+        
+        public string Copy(Streams streams, ConsoleOutput consoleOutput)
+        {
+            //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac
+
+           
+              var arguments =_arguments.GetValue(consoleOutput.ToString()) + 
+                            _arguments.GetValue(streams.ToString());
+
+            
+
+
+             return arguments;
+
+         
+
+
+        }
+
 
     
         
