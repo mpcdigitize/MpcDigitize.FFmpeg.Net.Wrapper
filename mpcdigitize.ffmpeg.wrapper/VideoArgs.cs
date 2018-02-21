@@ -17,11 +17,12 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
       
         }
     
-        public string Convert(VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, Bitrate audioBitrate)
+        public string Convert(VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, Bitrate audioBitrate, ConsoleOutput consoleOutput)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
-            var arguments = _arguments.GetValue(videoResize.ToString()) +
+            var arguments = _arguments.GetValue(consoleOutput.ToString()) +
+                            _arguments.GetValue(videoResize.ToString()) +
                             _arguments.GetValue(videoEncoder.ToString()) +
                             _arguments.GetValue(videoPreset.ToString()) +
                             _arguments.GetValue(videoConstantRateFactor.ToString()) +
