@@ -14,12 +14,8 @@ namespace mpcdigitize.ffmpeg.wrapper
     {
         private Process _process;
         private string _encoderPath;
-
-       
-
-       
-
-        // public event EventHandler VideoEncoded;
+        
+        public event EventHandler<EncodedEventArgs> VideoEncoded;
         public event EventHandler<EncodingEventArgs> VideoEncoding;
 
         public EncodingEngine(string encoderPath)
@@ -77,10 +73,10 @@ namespace mpcdigitize.ffmpeg.wrapper
         }
 
 
-        protected virtual void OnVideoEncoded()
+        protected virtual void OnVideoEncoded(EncodedEventArgs e)
         {
 
-
+            VideoEncoded?.Invoke(this,e);
 
         }
 
