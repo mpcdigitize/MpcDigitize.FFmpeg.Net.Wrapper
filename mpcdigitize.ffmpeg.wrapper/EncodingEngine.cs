@@ -10,17 +10,12 @@ using System.Threading.Tasks;
 
 namespace mpcdigitize.ffmpeg.wrapper
 {
-    public class FfmpegEncoder
+    public class EncodingEngine
     {
         private Process _process;
       
         private EncodingStats _encodingStats;
 
-
-       
-
-
-       // public string ConsoleOutput;
         private string _encoderPath;
 
        
@@ -30,7 +25,7 @@ namespace mpcdigitize.ffmpeg.wrapper
         // public event EventHandler VideoEncoded;
         public event EventHandler<EncodingEventArgs> VideoEncoding;
 
-        public FfmpegEncoder(string encoderPath)
+        public EncodingEngine(string encoderPath)
         {
             _encoderPath = encoderPath;
             _process = new Process();
@@ -39,42 +34,15 @@ namespace mpcdigitize.ffmpeg.wrapper
         }
 
 
-        public void Pause()
-        {
 
-         
-            StreamWriter myStreamWriter = this._process.StandardInput;
-            myStreamWriter.WriteLine("STOP");
-        }
-
-        public void Resume()
-        {
-            StreamWriter myStreamWriter = this._process.StandardInput;
-            myStreamWriter.WriteLine("CONT");
-        }
 
 
         public void Cancel()
         {
-            //this._process.CancelErrorRead() ;
-            //this._process.CancelOutputRead();
-            //this._process.Close();
 
             StreamWriter myStreamWriter = this._process.StandardInput;
             myStreamWriter.WriteLine("q");
 
-
-            //Process killFfmpeg = new Process();
-            //ProcessStartInfo taskkillStartInfo = new ProcessStartInfo
-            //{
-            //    FileName = "taskkill",
-            //    Arguments = "/F /IM ffmpeg.exe",
-            //    UseShellExecute = false,
-            //    CreateNoWindow = true
-            //};
-
-            //killFfmpeg.StartInfo = taskkillStartInfo;
-            //killFfmpeg.Start();
 
         }
 
