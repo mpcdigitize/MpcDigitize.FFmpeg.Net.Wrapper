@@ -12,6 +12,7 @@ namespace mpcdigitize.ffmpeg.wrapper
         public string InputFile { get; set; }
         public string OutputFile { get; set; }
         public string ConversionArguments { get; set; }
+        public object Metadata {get;set;}
        
     }
 }
