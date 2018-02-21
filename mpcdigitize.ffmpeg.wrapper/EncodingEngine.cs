@@ -13,9 +13,6 @@ namespace mpcdigitize.ffmpeg.wrapper
     public class EncodingEngine
     {
         private Process _process;
-      
-        private EncodingStats _encodingStats;
-
         private string _encoderPath;
 
        
@@ -29,7 +26,6 @@ namespace mpcdigitize.ffmpeg.wrapper
         {
             _encoderPath = encoderPath;
             _process = new Process();
-            _encodingStats = new EncodingStats();
 
         }
 
