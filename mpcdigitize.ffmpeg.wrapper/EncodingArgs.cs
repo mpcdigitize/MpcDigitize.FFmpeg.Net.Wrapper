@@ -87,6 +87,11 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
             //Banner
             _arguments.Add("HideBanner", " -v quiet -stats ");
             _arguments.Add("ShowBanner", "");
+            
+            //Streams
+             _arguments.Add("AudioStream", " -vn -c copy ");
+            _arguments.Add("VideoStream", " -ac -c copy ");
+            _arguments.Add("AllStreams", " -c copy ");
 
         }
 
