@@ -17,7 +17,17 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
       
         }
     
-       
+       public string Convert(AudioEncoder audioEncoder, Bitrate audioBitrate)
+        {
+
+            var arguments = _arguments.GetValue(audioEncoder.ToString()) +
+                            _arguments.GetValue(audioBitrate.ToString());
+
+            return arguments;
+
+
+        }
+
         
 
 
