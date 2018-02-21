@@ -41,7 +41,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
         public string Convert(VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, ConsoleOutput consoleOutput)
         {
-            //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
+            //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac
 
            
               var arguments =_arguments.GetValue(consoleOutput.ToString()) + 
