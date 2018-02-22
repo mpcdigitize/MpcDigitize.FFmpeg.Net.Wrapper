@@ -72,14 +72,24 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         }
         
         
-        public string GetFrame(int timeInSeconds)
+        
+        public string GetFrame(string inputFile, int timeInSeconds,FrameSize frameSize, string outputFile)
         {
-        
-            var arguments = _arguments.GetValue
+            //ffmpeg -ss 01:23:45 -i input -vframes 1 -q:v 2 output.jpg
+
+            var arguments = "-ss " + timeInSeconds + 
+                            " -i " + inputFile +
+                            " -frames:v 1" +
+                            _arguments.GetValue(frameSize.ToString()) +
+                            " -q:v 2" +
+                             " " + outputFile;
+
             
-            return arguments;
-        
+
+         return arguments;
+
         }
+
 
 
     
