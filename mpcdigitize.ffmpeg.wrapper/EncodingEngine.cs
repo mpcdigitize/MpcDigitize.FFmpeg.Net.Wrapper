@@ -50,9 +50,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 
             this._process.StartInfo.FileName = _encoderPath;
 
-            this._process.StartInfo.Arguments = "-i " + encodingJob.InputFile +
-                                                encodingJob.ConversionArguments +
-                                                encodingJob.OutputFile;
+            this._process.StartInfo.Arguments = encodingJob.Arguments;
 
             this._process.StartInfo.UseShellExecute = false;
             this._process.StartInfo.RedirectStandardError = true;
