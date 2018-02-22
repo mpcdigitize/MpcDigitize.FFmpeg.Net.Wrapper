@@ -8,10 +8,7 @@ namespace mpcdigitize.ffmpeg.wrapper
 {
     public class EncodingJob
     {
-
-        public string InputFile { get; set; }
-        public string OutputFile { get; set; }
-        public string ConversionArguments { get; set; }
+        public string Arguments { get; set; }
         public object Metadata {get;set;}
        
     }
