@@ -17,16 +17,18 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
       
         }
     
-        public string Convert(VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, Bitrate audioBitrate)
+        public string Convert(string inputFile,VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, Bitrate audioBitrate, string outputFile)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
-            var arguments = _arguments.GetValue(videoResize.ToString()) +
+            var arguments = "-i " + inputFile +
+                            _arguments.GetValue(videoResize.ToString()) +
                             _arguments.GetValue(videoEncoder.ToString()) +
                             _arguments.GetValue(videoPreset.ToString()) +
                             _arguments.GetValue(videoConstantRateFactor.ToString()) +
                             _arguments.GetValue(audioCodec.ToString()) +
-                            _arguments.GetValue(audioBitrate.ToString());
+                            _arguments.GetValue(audioBitrate.ToString()) +
+                            outputFile;
 
 
             return arguments;
@@ -38,16 +40,18 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
 
 
-        public string Convert(VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec)
+        public string Convert(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, string outputFile)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac
 
            
-              var arguments = _arguments.GetValue(videoResize.ToString()) +
+              var arguments = "-i " + inputFile +
+                            _arguments.GetValue(videoResize.ToString()) +
                             _arguments.GetValue(videoEncoder.ToString()) +
                             _arguments.GetValue(videoPreset.ToString()) +
                             _arguments.GetValue(videoConstantRateFactor.ToString()) +
-                            _arguments.GetValue(audioCodec.ToString());
+                            _arguments.GetValue(audioCodec.ToString()) +
+                            outputFile;
 
             
 
@@ -59,10 +63,12 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
         }
         
-        public string Copy(Streams streams)
+        public string Copy(string inputFile, Streams streams, string outputFile)
         {
            
-              var arguments = _arguments.GetValue(streams.ToString());
+              var arguments = "-i " + inputFile +
+                               _arguments.GetValue(streams.ToString()) +
+                               outputFile;
              
              return arguments;
 
