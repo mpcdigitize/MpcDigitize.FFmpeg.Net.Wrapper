@@ -63,15 +63,22 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         {
            
               var arguments = _arguments.GetValue(streams.ToString());
-
-            
-
-
+             
              return arguments;
 
          
 
 
+        }
+        
+        
+        public string GetFrame(int timeInSeconds)
+        {
+        
+            var arguments = _arguments.GetValue
+            
+            return arguments;
+        
         }
 
 
