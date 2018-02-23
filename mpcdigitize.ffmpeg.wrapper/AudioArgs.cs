@@ -30,6 +30,34 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
 
         }
+        
+        
+        public string Capture(string inputFile, string outputFile)
+        {
+            
+            var arguments = "-i " + inputFile +
+                            " -y " + outputFile;
+
+            return arguments;
+        }
+
+
+        public string Capture(string inputFile,int durationInSeconds, string outputFile)
+        {
+            
+            var arguments = "-i " + inputFile +
+                            " -c copy" +
+                            " -t " + durationInSeconds
+                            outputFile;
+
+            Console.WriteLine(arguments);
+
+        //    encodingEngine.StartEncoding(arguments, _programmPath);
+
+
+
+        }
+
 
         
 
