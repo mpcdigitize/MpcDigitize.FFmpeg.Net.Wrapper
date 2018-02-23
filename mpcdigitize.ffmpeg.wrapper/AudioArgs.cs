@@ -17,11 +17,14 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
       
         }
     
-       public string Convert(AudioEncoder audioEncoder, Bitrate audioBitrate)
+       public string Convert(string inputFile, AudioEncoder audioEncoder, Bitrate audioBitrate, string outputFile)
         {
 
-            var arguments = _arguments.GetValue(audioEncoder.ToString()) +
-                            _arguments.GetValue(audioBitrate.ToString());
+            var arguments = "-i " + inputFile +
+                            " -v quiet -stats " +
+                            _arguments.GetValue(audioEncoder.ToString()) +
+                            _arguments.GetValue(audioBitrate.ToString())
+                            " -y " + outputFile;
 
             return arguments;
 
