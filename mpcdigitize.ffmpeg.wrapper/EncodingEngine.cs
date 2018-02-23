@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mpcdigitize.ffmpeg.wrapper
+namespace MpcDigitize.FFmpeg.Net.Wrapper
 {
     public class EncodingEngine
     {
