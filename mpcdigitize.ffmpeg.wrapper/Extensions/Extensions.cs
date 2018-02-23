@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using mpcdigitize.ffmpeg.wrapper.Enums;
 
-namespace mpcdigitize.ffmpeg.wrapper.Extensions
+namespace MpcDigitize.FFmpeg.Net.Wrapper
 {
     public static class Extensions
     {
