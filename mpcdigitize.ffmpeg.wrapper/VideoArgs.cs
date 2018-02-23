@@ -22,13 +22,14 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
             var arguments = "-i " + inputFile +
+                            " -v quiet -stats " +
                             _arguments.GetValue(videoResize.ToString()) +
                             _arguments.GetValue(videoEncoder.ToString()) +
                             _arguments.GetValue(videoPreset.ToString()) +
                             _arguments.GetValue(videoConstantRateFactor.ToString()) +
                             _arguments.GetValue(audioCodec.ToString()) +
                             _arguments.GetValue(audioBitrate.ToString()) +
-                            outputFile;
+                            " -y " + outputFile;
 
 
             return arguments;
@@ -46,12 +47,13 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
 
            
               var arguments = "-i " + inputFile +
+                            " -v quiet -stats " +
                             _arguments.GetValue(videoResize.ToString()) +
                             _arguments.GetValue(videoEncoder.ToString()) +
                             _arguments.GetValue(videoPreset.ToString()) +
                             _arguments.GetValue(videoConstantRateFactor.ToString()) +
                             _arguments.GetValue(audioCodec.ToString()) +
-                            outputFile;
+                            " -y " + outputFile;
 
             
 
@@ -67,8 +69,9 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         {
            
               var arguments = "-i " + inputFile +
+                               " -v quiet -stats " +
                                _arguments.GetValue(streams.ToString()) +
-                               outputFile;
+                               " -y " + outputFile;
              
              return arguments;
 
@@ -83,12 +86,13 @@ namespace Mpcdigitize.Ffmpeg.Wrapper
         {
             //ffmpeg -ss 01:23:45 -i input -vframes 1 -q:v 2 output.jpg
 
-            var arguments = "-ss " + timeInSeconds + 
+            var arguments = " -v quiet -stats " +
+                            "-ss " + timeInSeconds + 
                             " -i " + inputFile +
                             " -frames:v 1" +
                             _arguments.GetValue(frameSize.ToString()) +
-                            " -q:v 2" +
-                             " " + outputFile;
+                            " -q:v 2 " +
+                             "-y " + outputFile;
 
             
 
