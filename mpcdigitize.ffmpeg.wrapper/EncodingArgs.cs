@@ -11,14 +11,14 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
         private Dictionary<string, string> _arguments;
         
-        public Dictionary<string,string> Arguments
-        {
-            get
-            {
-                return _arguments;
-            }
+        //public Dictionary<string,string> Arguments
+        //{
+        //    get
+        //    {
+        //        return this;
+        //    }
         
-        }
+        //}
 
         public EncodingArgs()
         {

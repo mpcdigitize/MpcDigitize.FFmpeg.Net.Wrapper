@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace MpcDigitize.FFmpeg.Net.Wrapper
 {
-    public class VideoArgs : EncodingArgs
+    public class VideoArgs
     {
-        
-        private Dictionary<string, string> _arguments;
+       
+        private EncodingArgs _arguments;
         
         public VideoArgs()
         {
-          _arguments = this.Arguments
+          
+            _arguments = new EncodingArgs();
       
         }
     
-        public string Convert(string inputFile,VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, Bitrate audioBitrate, string outputFile)
+        public string Convert(string inputFile,VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, ConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, Bitrate audioBitrate, string outputFile)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
@@ -31,6 +32,8 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
                             _arguments.GetValue(audioBitrate.ToString()) +
                             " -y " + outputFile;
 
+           
+
 
             return arguments;
 
@@ -41,7 +44,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
 
 
-        public string Convert(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, VideoConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, string outputFile)
+        public string Convert(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, ConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, string outputFile)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac
 

@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace MpcDigitize.FFmpeg.Net.Wrapper
 {
-    public class AudioArgs : EncodingArgs
+    public class AudioArgs
     {
-        
-        private Dictionary<string, string> _arguments;
-        
+
+        private EncodingArgs _arguments;
+
         public AudioArgs()
         {
-            _arguments = this.Arguments;
-      
+
+            _arguments = new EncodingArgs();
+
         }
-    
-       public string Convert(string inputFile, AudioEncoder audioEncoder, Bitrate audioBitrate, string outputFile)
+
+        public string Convert(string inputFile, AudioEncoder audioEncoder, Bitrate audioBitrate, string outputFile)
         {
 
             var arguments = "-i " + inputFile +
@@ -47,7 +48,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
             
             var arguments = "-i " + inputFile +
                             " -c copy" +
-                            " -t " + durationInSeconds
+                            " -t " + durationInSeconds +
                             outputFile;
 
             return arguments;

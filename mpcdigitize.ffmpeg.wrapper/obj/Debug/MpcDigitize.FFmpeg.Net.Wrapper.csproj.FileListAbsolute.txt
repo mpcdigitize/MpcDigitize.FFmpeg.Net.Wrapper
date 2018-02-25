@@ -1,3 +1,9 @@
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\MpcDigitize.FFmpeg.Net.Wrapper.csprojResolveAssemblyReference.cache
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\mpcdigitize.ffmpeg.wrapper.dll
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\mpcdigitize.ffmpeg.wrapper.pdb
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\mpcdigitize.ffmpeg.wrapper.dll
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\mpcdigitize.ffmpeg.wrapper.pdb
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.dll
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\Newtonsoft.Json.dll
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.pdb
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\bin\Debug\Newtonsoft.Json.xml
