@@ -1,5 +1,4 @@
-using mpcdigitize.ffmpeg.wrapper.Enums;
-using mpcdigitize.ffmpeg.wrapper.Extensions;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

@@ -13,7 +13,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         
         public AudioArgs()
         {
-          _arguments = this.Arguments
+            _arguments = this.Arguments;
       
         }
     
@@ -23,7 +23,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
             var arguments = "-i " + inputFile +
                             " -v quiet -stats " +
                             _arguments.GetValue(audioEncoder.ToString()) +
-                            _arguments.GetValue(audioBitrate.ToString())
+                            _arguments.GetValue(audioBitrate.ToString()) +
                             " -y " + outputFile;
 
             return arguments;
@@ -50,7 +50,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
                             " -t " + durationInSeconds
                             outputFile;
 
-            Console.WriteLine(arguments);
+            return arguments;
 
         //    encodingEngine.StartEncoding(arguments, _programmPath);
 

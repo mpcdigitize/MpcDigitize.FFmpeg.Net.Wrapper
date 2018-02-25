@@ -10,3 +10,15 @@
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\Newtonsoft.Json.dll
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.pdb
 \\TOWER\github\mpcdigitize.ffmpeg.wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\Newtonsoft.Json.xml
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.console.exe.config
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.console.exe
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.console.pdb
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.dll
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.dll
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\Newtonsoft.Json.dll
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\mpcdigitize.ffmpeg.wrapper.pdb
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.pdb
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\bin\Debug\Newtonsoft.Json.xml
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.Console.csprojResolveAssemblyReference.cache
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\obj\Debug\mpcdigitize.ffmpeg.wrapper.console.exe
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper.console\obj\Debug\mpcdigitize.ffmpeg.wrapper.console.pdb

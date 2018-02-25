@@ -1,0 +1,3 @@
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\MpcDigitize.FFmpeg.Net.Wrapper.csprojResolveAssemblyReference.cache
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\mpcdigitize.ffmpeg.wrapper.dll
+\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\mpcdigitize.ffmpeg.wrapper\obj\Debug\mpcdigitize.ffmpeg.wrapper.pdb
