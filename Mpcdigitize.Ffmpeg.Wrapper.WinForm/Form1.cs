@@ -1,5 +1,5 @@
-﻿using mpcdigitize.ffmpeg.wrapper;
-using Mpcdigitize.Ffmpeg.Wrapper.Enums;
+﻿
+using MpcDigitize.FFmpeg.Net.Wrapper;
 using MpcDigitize.Wtv.FFprobe.Wrapper;
 using MpcDigitize.Wtv.FFprobe.Wrapper.Enums;
 using MpcDigitize.Wtv.FFprobe.Wrapper.Extensions;
@@ -22,14 +22,14 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
 
         private BackgroundWorker bw;
-        private FfmpegEncoder ffmpeg;
+        private EncodingEngine ffmpeg;
   
 
         public Form1()
         {
             InitializeComponent();
 
-            this.ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
+            this.ffmpeg = new EncodingEngine(@"C:\ffmpeg\ffmpeg.exe");
             this.bw = new BackgroundWorker();
             this.bw.DoWork += new DoWorkEventHandler(bw_DoWork);
             this.bw.ProgressChanged += new ProgressChangedEventHandler(bw_ProgressChanged);        
@@ -107,18 +107,18 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         public void Encode()
         {
-            var arguments = new FfmpegArgumentsDictionary();
+            var arguments = new EncodingArgs();
             var job = new EncodingJob();
-            var argsSelector = new ArgsSelector();
+         //   var argsSelector = new ArgsSelector();
 
                
 
-            job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_2.mkv";
+            var inputFile = @"C:\input\testWTVShort.wtv";
+            var outputFile = @"C:\videos\testConvert_2.mkv";
 
          
 
-            job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
+            job.Arguments = argsSelector.Video.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
 
 
            

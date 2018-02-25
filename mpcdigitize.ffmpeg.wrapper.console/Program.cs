@@ -1,7 +1,5 @@
-﻿using mpcdigitize.ffmpeg;
-using mpcdigitize.ffmpeg.wrapper;
-using Mpcdigitize.Ffmpeg.Wrapper;
-using Mpcdigitize.Ffmpeg.Wrapper.Enums;
+﻿
+using MpcDigitize.FFmpeg.Net.Wrapper;
 using MpcDigitize.Wtv.FFprobe.Wrapper;
 using MpcDigitize.Wtv.FFprobe.Wrapper.Enums;
 using MpcDigitize.Wtv.FFprobe.Wrapper.Extensions;
@@ -63,7 +61,7 @@ namespace ConsoleApplication
 
             job.InputFile = @"C:\input\testWTVShort.wtv";
             job.OutputFile = @"C:\videos\testConvert_3.mkv";
-            job.ConversionArguments = argsSelector.Video.Convert3(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, VideoConstantRateFactor.CrfNormal, AudioCodec.Ac3);
+            job.ConversionArguments = argsSelector.Video.Convert(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3);
 
             var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
             var dipl = new DisplayInfo();
