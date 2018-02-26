@@ -46,7 +46,7 @@ namespace ConsoleApplication
            
             
 
-            var arguments = new FfmpegArgumentsDictionary();
+            var arguments = new EncodingArgs();
             //  var ffmpeg = new Ffmpeg(@"C:\ffmpeg\ffmpeg.exe");
             //  string inputFile = @"C:\input\testmp4.mp4";
             //string outputFile = @"C:\output\testmp3_2.mp3";
@@ -56,14 +56,14 @@ namespace ConsoleApplication
 
 
             var job = new EncodingJob();
-            var argsSelector = new ArgsSelector();
+           // var argsSelector = new ArgsSelector();
 
 
-            job.InputFile = @"C:\input\testWTVShort.wtv";
-            job.OutputFile = @"C:\videos\testConvert_3.mkv";
-            job.ConversionArguments = argsSelector.Video.Convert(VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3);
+            var inputFile1 = @"C:\input\testWTVShort.wtv";
+            var outputFile = @"C:\videos\testConvert_3.mkv";
+         //   job.Arguments = argsSelector.Video.Convert(inputFile1,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
 
-            var ffmpeg = new FfmpegEncoder(@"C:\ffmpeg\ffmpeg.exe");
+            var ffmpeg = new EncodingEngine(@"C:\ffmpeg\ffmpeg.exe");
             var dipl = new DisplayInfo();
 
             ffmpeg.VideoEncoding += dipl.DisplayProgress;

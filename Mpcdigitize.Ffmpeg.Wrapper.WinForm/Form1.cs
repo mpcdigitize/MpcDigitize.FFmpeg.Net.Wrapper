@@ -109,16 +109,16 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         {
             var arguments = new EncodingArgs();
             var job = new EncodingJob();
-         //   var argsSelector = new ArgsSelector();
+            var args = new VideoArgs();
 
                
 
             var inputFile = @"C:\input\testWTVShort.wtv";
-            var outputFile = @"C:\videos\testConvert_2.mkv";
+            var outputFile = @"C:\videos\testConvert_3.mkv";
 
          
 
-            job.Arguments = argsSelector.Video.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
+            job.Arguments = args.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
 
 
            
@@ -156,16 +156,8 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
          //   button2.Enabled = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ffmpeg.Pause();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            ffmpeg.Resume();
-        }
-
+       
+        
         private void Form1_Load(object sender, EventArgs e)
         {
 

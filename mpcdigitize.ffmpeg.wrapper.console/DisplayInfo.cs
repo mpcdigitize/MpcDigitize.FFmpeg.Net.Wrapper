@@ -1,4 +1,5 @@
-﻿using mpcdigitize.ffmpeg.wrapper;
+﻿
+using MpcDigitize.FFmpeg.Net.Wrapper;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
