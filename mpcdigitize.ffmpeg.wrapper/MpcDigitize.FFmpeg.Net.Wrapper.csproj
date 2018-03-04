@@ -54,6 +54,7 @@
     <Compile Include="Enums\RegexGroup.cs" />
     <Compile Include="Enums\RegexKey.cs" />
     <Compile Include="Enums\Streams.cs" />
+    <Compile Include="ErrorEventArgs.cs" />
     <Compile Include="ExitedEventArgs.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="EncodingEngine.cs" />

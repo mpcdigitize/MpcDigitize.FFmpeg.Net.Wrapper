@@ -29,12 +29,12 @@ namespace ConsoleApplication
 
             var inputFile = @"C:\input\testWTVShort.wtv";
             //  var outputFile = @"C:\videos\testConvert_3.mkv";
-            var outputFile = @"C:\videos\testConvert_7.mkv";
+            var outputFile = @"C:\videos\testConvert_4.mkv";
 
 
 
-            job.Arguments = vargs.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
-            //job.Arguments = args.Copy(inputFile, Streams.AllStreams, outputFile);
+           // job.Arguments = vargs.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
+            job.Arguments = vargs.Copy(inputFile, Streams.AllStreams, outputFile);
 
             string title = "My conversion test file";
 
@@ -43,6 +43,7 @@ namespace ConsoleApplication
             ffmpeg.VideoEncoding += display.DisplayProgress;
             ffmpeg.VideoEncoded += display.DisplayCompleted;
             ffmpeg.Exited += display.DisplayExitCode;
+            ffmpeg.ErrorReceived += display.DisplayErrorMessage;
 
             ffmpeg.DoWork(job);
 

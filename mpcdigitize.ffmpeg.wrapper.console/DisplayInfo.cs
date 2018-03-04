@@ -39,5 +39,14 @@ namespace ConsoleApplication
 
 
         }
+
+        public void DisplayErrorMessage(object sender, ErrorEventArgs e)
+        {
+
+            //var meta = (string)e.EncodingJob.Metadata;
+            Console.WriteLine("ErrorMessage : {0}", e.ErrorMessage);
+
+
+        }
     }
 }

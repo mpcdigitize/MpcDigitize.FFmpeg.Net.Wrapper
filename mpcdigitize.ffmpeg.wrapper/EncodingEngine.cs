@@ -17,6 +17,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         public event EventHandler<EncodedEventArgs> VideoEncoded;
         public event EventHandler<EncodingEventArgs> VideoEncoding;
         public event EventHandler<ExitedEventArgs> Exited;
+        public event EventHandler<ErrorEventArgs> ErrorReceived;
 
         public EncodingEngine(string encoderPath)
         {
@@ -97,14 +98,20 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         }
 
 
+        protected virtual void OnErrorReceived(ErrorEventArgs e)
+        {
+
+            ErrorReceived?.Invoke(this, e);
+
+        }
+
 
 
 
         private void ProcessExited(object sender, EventArgs e)
         {
             OnExit(new ExitedEventArgs() {ExitCode = _process.ExitCode.ToString()});
-           // e.ExitCode = _process.ExitCode.ToString();
-            //  Console.WriteLine(string.Format("process exited with code {0}\n", process.ExitCode.ToString()));
+          
         }
 
 
@@ -113,7 +120,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         private void GetStandardErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
-            //raising event          
+                     
             OnVideoEncoding(new EncodingEventArgs() {
 
                 Frame = e.Data.GetRegexValue(RegexKey.Frame,RegexGroup.Two),             
@@ -135,7 +142,9 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
         private void GetStandardOutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-            // Console.WriteLine(e.Data + "\n");
+            //  Console.WriteLine(e.Data + "\n");
+
+            OnErrorReceived(new ErrorEventArgs() { ErrorMessage = e.Data });
         }
 
 
