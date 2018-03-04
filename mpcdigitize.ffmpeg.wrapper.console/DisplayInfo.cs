@@ -30,5 +30,14 @@ namespace ConsoleApplication
 
 
         }
+
+        public void DisplayExitCode(object sender, ExitedEventArgs e)
+        {
+
+            //var meta = (string)e.EncodingJob.Metadata;
+            Console.WriteLine("ExitCode : {0}", e.ExitCode);
+
+
+        }
     }
 }

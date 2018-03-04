@@ -16,6 +16,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         
         public event EventHandler<EncodedEventArgs> VideoEncoded;
         public event EventHandler<EncodingEventArgs> VideoEncoding;
+        public event EventHandler<ExitedEventArgs> Exited;
 
         public EncodingEngine(string encoderPath)
         {
@@ -45,7 +46,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
            
             this._process.ErrorDataReceived += new DataReceivedEventHandler(this.GetStandardErrorDataReceived);
 
-            this._process.Exited += new EventHandler(process_Exited);
+            this._process.Exited += new EventHandler(ProcessExited);
 
             this._process.StartInfo.FileName = _encoderPath;
 
@@ -88,11 +89,21 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
         }
 
-
-
-
-        public void process_Exited(object sender, EventArgs e)
+        protected virtual void OnExit(ExitedEventArgs e)
         {
+
+            Exited?.Invoke(this, e);
+
+        }
+
+
+
+
+
+        private void ProcessExited(object sender, EventArgs e)
+        {
+            OnExit(new ExitedEventArgs() {ExitCode = _process.ExitCode.ToString()});
+           // e.ExitCode = _process.ExitCode.ToString();
             //  Console.WriteLine(string.Format("process exited with code {0}\n", process.ExitCode.ToString()));
         }
 

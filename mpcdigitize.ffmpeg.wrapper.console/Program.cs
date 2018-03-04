@@ -29,7 +29,7 @@ namespace ConsoleApplication
 
             var inputFile = @"C:\input\testWTVShort.wtv";
             //  var outputFile = @"C:\videos\testConvert_3.mkv";
-            var outputFile = @"C:\videos\testConvert_6.mkv";
+            var outputFile = @"C:\videos\testConvert_7.mkv";
 
 
 
@@ -42,6 +42,7 @@ namespace ConsoleApplication
 
             ffmpeg.VideoEncoding += display.DisplayProgress;
             ffmpeg.VideoEncoded += display.DisplayCompleted;
+            ffmpeg.Exited += display.DisplayExitCode;
 
             ffmpeg.DoWork(job);
 
