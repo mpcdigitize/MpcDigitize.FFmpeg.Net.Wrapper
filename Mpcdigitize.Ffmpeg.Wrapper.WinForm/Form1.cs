@@ -114,11 +114,13 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
                
 
             var inputFile = @"C:\input\testWTVShort.wtv";
-            var outputFile = @"C:\videos\testConvert_3.mkv";
+          //  var outputFile = @"C:\videos\testConvert_3.mkv";
+            var outputFile = @"C:\videos\CopyMKV.mkv";
 
-         
 
-            job.Arguments = args.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
+
+            //job.Arguments = args.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
+            job.Arguments = args.Copy(inputFile,Streams.AllStreams,outputFile);
 
 
            

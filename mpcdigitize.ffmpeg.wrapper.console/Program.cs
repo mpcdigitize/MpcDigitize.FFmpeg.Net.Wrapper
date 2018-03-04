@@ -18,57 +18,36 @@ namespace ConsoleApplication
         static void Main(string[] args)
         {
 
-            //var patterns = new RegexPatterns();
-
-
-            //var keys = patterns.GetValue(mpcdigitize.ffmpeg.wrapper.Enums.RegexKey.Frame);
-
-            //Console.WriteLine(keys.OriginalKey + " " + keys.ReplaceKey + " " + keys.RegexSearchKey);
-
-
-            //Console.ReadLine();
-
-
-            var ffprobe = new MetadataReader(@"C:\ffmpeg\ffprobe.exe");
-            var inputFile = @"C:\input\testWTVShort.wtv";
-
-            var output = ffprobe.DoWork(inputFile, OutputFormat.Json);
-
-            var result = output.GetMetadata().format.duration;
-            var a = (int)Convert.ToDouble(result);
-            Console.WriteLine(result);
-            Console.WriteLine(a);
-            
 
             
-           // xre = Int32.Parse(result);
-          //  Console.WriteLine(xre.ToString());
-           
-            
-
-            var arguments = new EncodingArgs();
-            //  var ffmpeg = new Ffmpeg(@"C:\ffmpeg\ffmpeg.exe");
-            //  string inputFile = @"C:\input\testmp4.mp4";
-            //string outputFile = @"C:\output\testmp3_2.mp3";
-
-            // ffmpeg.Audio.Convert();
-            //ffmpeg.Video.Convert();
-
-
-            var job = new EncodingJob();
-           // var argsSelector = new ArgsSelector();
-
-
-            var inputFile1 = @"C:\input\testWTVShort.wtv";
-            var outputFile = @"C:\videos\testConvert_3.mkv";
-         //   job.Arguments = argsSelector.Video.Convert(inputFile1,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
-
             var ffmpeg = new EncodingEngine(@"C:\ffmpeg\ffmpeg.exe");
-            var dipl = new DisplayInfo();
+            var arguments = new EncodingArgs();
+            var job = new EncodingJob();
+            var vargs = new VideoArgs();
+            var display = new DisplayInfo();
 
-            ffmpeg.VideoEncoding += dipl.DisplayProgress;
 
-        //   ffmpeg.DoWork(job);
+            var inputFile = @"C:\input\testWTVShort.wtv";
+            //  var outputFile = @"C:\videos\testConvert_3.mkv";
+            var outputFile = @"C:\videos\testConvert_5.mkv";
+
+
+
+            job.Arguments = vargs.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
+            //job.Arguments = args.Copy(inputFile, Streams.AllStreams, outputFile);
+
+            string title = "My conversion test file";
+
+            job.Metadata = title;
+
+            ffmpeg.VideoEncoding += display.DisplayProgress;
+            ffmpeg.VideoEncoded += display.DisplayCompleted;
+
+            ffmpeg.DoWork(job);
+
+
+
+
 
 
 
