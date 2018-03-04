@@ -41,9 +41,9 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         {
 
             this._process.EnableRaisingEvents = true;
-            this._process.OutputDataReceived += new DataReceivedEventHandler(process_OutputDataReceived);
+            this._process.OutputDataReceived += new DataReceivedEventHandler(this.GetStandardOutputDataReceived);
            
-            this._process.ErrorDataReceived += new DataReceivedEventHandler(process_ErrorDataReceived);
+            this._process.ErrorDataReceived += new DataReceivedEventHandler(this.GetStandardErrorDataReceived);
 
             this._process.Exited += new EventHandler(process_Exited);
 
@@ -99,7 +99,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
 
 
-        public void process_ErrorDataReceived(object sender, DataReceivedEventArgs e)
+        private void GetStandardErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
 
             //raising event          
@@ -122,7 +122,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
      
 
-        public void process_OutputDataReceived(object sender, DataReceivedEventArgs e)
+        private void GetStandardOutputDataReceived(object sender, DataReceivedEventArgs e)
         {
             // Console.WriteLine(e.Data + "\n");
         }

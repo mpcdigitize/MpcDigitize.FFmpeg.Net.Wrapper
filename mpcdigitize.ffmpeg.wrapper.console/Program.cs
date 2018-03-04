@@ -29,7 +29,7 @@ namespace ConsoleApplication
 
             var inputFile = @"C:\input\testWTVShort.wtv";
             //  var outputFile = @"C:\videos\testConvert_3.mkv";
-            var outputFile = @"C:\videos\testConvert_5.mkv";
+            var outputFile = @"C:\videos\testConvert_6.mkv";
 
 
 
