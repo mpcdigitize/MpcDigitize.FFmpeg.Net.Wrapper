@@ -50,18 +50,12 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            var myObject = (EncodingStats)e.UserState;
+            var userState = (EncodingStats)e.UserState;
+          
+            //Get duration using ffprobe
+            this.pbStatus.Maximum = 100; 
 
-            var ffprobe = new MetadataReader(@"C:\ffmpeg\ffprobe.exe");
-
-            var InputFile = @"C:\input\testWTVShort.wtv";
-        
-            var output = ffprobe.DoWork(InputFile, OutputFormat.Json);
-            var result = output.GetMetadata().format.duration;
-
-            this.pbStatus.Maximum = (int)Convert.ToDouble(result);
-
-            this.label2.Text = e.ProgressPercentage.ToString() + "% complete" + " Size: " + myObject.Size + " Speed: " + myObject.Speed;
+            this.label2.Text = e.ProgressPercentage.ToString() + "% complete" + " Size: " + userState.Size + " Speed: " + userState.Speed;
             this.pbStatus.Value = e.ProgressPercentage;
             
         }
@@ -70,22 +64,9 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         {
             BackgroundWorker worker = (BackgroundWorker)sender;
 
-            //if (bw.CancellationPending)
-            //{
-            //    e.Cancel = true;
-            //    ffmpeg.Cancel();
-              
-            //}
-            //else
-            //{
+          
                 this.Encode();
-            //}
-            
-
-
-            //worker.ReportProgress(val);
-
-
+          
             e.Result = "Completed";
         }
 
@@ -101,10 +82,6 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
             }
         }
     
-
-
-
-
         public void Encode()
         {
             var arguments = new EncodingArgs();
@@ -113,17 +90,11 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
                
 
-            var inputFile = @"C:\input\testWTVShort.wtv";
-          //  var outputFile = @"C:\videos\testConvert_3.mkv";
-            var outputFile = @"C:\videos\CopyMKV.mkv";
-
-
-
-            //job.Arguments = args.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
-            job.Arguments = args.Copy(inputFile,Streams.AllStreams,outputFile);
-
-
-           
+            var inputFile = @"C:\input\test.wtv";
+            var outputFile = @"C:\videos\testConvert_01.mkv";
+            
+            job.Arguments = args.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
+        
             ffmpeg.DoWork(job);
 
         }
@@ -133,20 +104,10 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
         public void GetProgress(object sender, EncodingEventArgs e)
         {
-            //  _progress = (int)e.Progress;
-            // _progress = 50;
-
-          
+                
             bw.ReportProgress((int)e.Progress, new EncodingStats {Size = e.Size,Frame = e.Frame, Speed = e.Speed });
 
-            //string path = @"C:\videos\testOutput2.txt";
-            //using (var tw = new StreamWriter(path, true))
-            //{
-            //    tw.WriteLine(_progress);
-            //    tw.Close();
-            //}
-
-
+      
 
         }
 
@@ -154,16 +115,16 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
         {
 
             ffmpeg.Cancel();
-           // bw.CancelAsync();
-         //   button2.Enabled = false;
+          
         }
 
-       
-        
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
+
+      
     }
     }
 
