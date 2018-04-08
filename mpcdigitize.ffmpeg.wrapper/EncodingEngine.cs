@@ -22,7 +22,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         public EncodingEngine(string encoderPath)
         {
             _encoderPath = encoderPath;
-            _process = new Process();
+            this._process = new Process();
 
         }
 
@@ -41,16 +41,15 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
         public void DoWork(EncodingJob encodingJob)
         {
-
+           
             this._process.EnableRaisingEvents = true;
-            this._process.OutputDataReceived += new DataReceivedEventHandler(this.GetStandardOutputDataReceived);
+          //  this._process.OutputDataReceived += new DataReceivedEventHandler(this.GetStandardOutputDataReceived);
            
             this._process.ErrorDataReceived += new DataReceivedEventHandler(this.GetStandardErrorDataReceived);
 
-            this._process.Exited += new EventHandler(ProcessExited);
-
+           // this._process.Exited += new EventHandler(this.ProcessExited);
+         
             this._process.StartInfo.FileName = _encoderPath;
-
             this._process.StartInfo.Arguments = encodingJob.Arguments;
 
             this._process.StartInfo.UseShellExecute = false;
@@ -64,13 +63,14 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
             this._process.Start();
             this._process.BeginErrorReadLine();
-            this._process.BeginOutputReadLine();
+          //  this._process.BeginOutputReadLine();
 
             this._process.WaitForExit();
-            this._process.Close();
-            
+                   
              OnVideoEncoded(new EncodedEventArgs() {EncodingJob = encodingJob });
+             OnExit(new ExitedEventArgs() { ExitCode = this._process.ExitCode.ToString() });
 
+            this._process.Close();
         }
 
 
@@ -106,13 +106,12 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         }
 
 
+        //private void ProcessExited(object sender, EventArgs e)
+        //{
 
-
-        private void ProcessExited(object sender, EventArgs e)
-        {
-            OnExit(new ExitedEventArgs() {ExitCode = _process.ExitCode.ToString()});
+        //    OnExit(new ExitedEventArgs() {ExitCode = this._process.ExitCode.ToString()});
           
-        }
+        //}
 
 
 
@@ -142,9 +141,17 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
         private void GetStandardOutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-            //  Console.WriteLine(e.Data + "\n");
 
-            OnErrorReceived(new ErrorEventArgs() { ErrorMessage = e.Data });
+            //string readerOutput = "";
+
+            //using (StreamReader reader = _process.StandardOutput)
+            //{
+
+            //    readerOutput = reader.ReadToEnd();
+
+            //}
+
+            //OnErrorReceived(new ErrorEventArgs() { ErrorMessage = readerOutput });
         }
 
 
