@@ -44,7 +44,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
             //Get duration using ffprobe
             this.pbStatus.Maximum = 100; 
 
-            this.label2.Text = e.ProgressPercentage.ToString() + "% complete" + " Size: " + userState.Size + " Speed: " + userState.Speed;
+            this.label1.Text = e.ProgressPercentage.ToString() + "% complete" + " Size: " + userState.Size + " Speed: " + userState.Speed;
             this.pbStatus.Value = e.ProgressPercentage;
             
         }
@@ -79,8 +79,8 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm
 
                
 
-            var inputFile = @"C:\input\test.wtv";
-            var outputFile = @"C:\videos\testConvert_01.mkv";
+            var inputFile = @"C:\input\testFile.wtv";
+            var outputFile = @"C:\videos\testConvert.mkv";
             
             job.Arguments = args.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
         
