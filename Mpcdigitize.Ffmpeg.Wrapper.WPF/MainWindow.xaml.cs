@@ -43,7 +43,7 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WPF
         {
             var stats = (EncodingStats)e.UserState;
 
-            this.label2.Content = e.ProgressPercentage.ToString() + "% complete" + " Size: " + stats.Size + " Speed: " + stats.Speed;
+            this.label1.Content = e.ProgressPercentage.ToString() + "% complete" + " Size: " + stats.Size + " Speed: " + stats.Speed;
             this.pbStatus.Value = e.ProgressPercentage;
 
         }
@@ -67,8 +67,8 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WPF
             var args = new VideoArgs();
 
 
-            var inputFile = @"C:\input\test.wtv";
-            var outputFile = @"C:\videos\testConvert_01.mkv";
+            var inputFile = @"C:\input\testFile.wtv";
+            var outputFile = @"C:\videos\testConvert.mkv";
             job.Arguments = args.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
 
 
@@ -95,14 +95,17 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WPF
         private void button1_Click_1(object sender, RoutedEventArgs e)
         {
 
-
-
-
             if (!this.bw.IsBusy)
             {
                 this.bw.RunWorkerAsync();
                 this.button1.IsEnabled = false;
             }
+        }
+
+        private void button2_Click_1(object sender, RoutedEventArgs e)
+        {
+
+            ffmpeg.Cancel();
         }
     }
 }

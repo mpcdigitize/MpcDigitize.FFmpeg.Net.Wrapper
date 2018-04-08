@@ -19,8 +19,7 @@
             </ProgressBar.RenderTransform>
         </ProgressBar>
         <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="84,149,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2" Content="Label" HorizontalAlignment="Left" Margin="101,233,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Cancel" HorizontalAlignment="Left" Margin="311,66,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button2" Content="Cancel" HorizontalAlignment="Left" Margin="311,66,0,0" VerticalAlignment="Top" Width="75" Click="button2_Click_1"/>
 
     </Grid>
 </Window>
