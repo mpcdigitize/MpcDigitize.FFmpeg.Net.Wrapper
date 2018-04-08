@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MpcDigitize.Wtv.FFprobe.Wrapper">
-      <HintPath>..\..\MpcDigitize.Wtv.FFprobe.Wrapper\MpcDigitize.Wtv.FFprobe.Wrapper\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

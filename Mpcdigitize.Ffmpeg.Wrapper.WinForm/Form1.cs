@@ -1,18 +1,7 @@
 ﻿
 using MpcDigitize.FFmpeg.Net.Wrapper;
-using MpcDigitize.Wtv.FFprobe.Wrapper;
-using MpcDigitize.Wtv.FFprobe.Wrapper.Enums;
-using MpcDigitize.Wtv.FFprobe.Wrapper.Extensions;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Mpcdigitize.Ffmpeg.Wrapper.WinForm

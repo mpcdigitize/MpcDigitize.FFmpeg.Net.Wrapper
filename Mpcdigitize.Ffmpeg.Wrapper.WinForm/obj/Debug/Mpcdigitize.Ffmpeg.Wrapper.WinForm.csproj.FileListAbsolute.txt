@@ -17,15 +17,10 @@
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.exe
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.pdb
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\mpcdigitize.ffmpeg.wrapper.dll
-\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.dll
-\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\Newtonsoft.Json.dll
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\mpcdigitize.ffmpeg.wrapper.pdb
-\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.pdb
-\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\bin\Debug\Newtonsoft.Json.xml
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.csprojResolveAssemblyReference.cache
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.Form1.resources
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.Properties.Resources.resources
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.csproj.GenerateResource.Cache
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.exe
 \\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.pdb
-\\TOWER\github\MpcDigitize.FFmpeg.Net.Wrapper\Mpcdigitize.Ffmpeg.Wrapper.WinForm\obj\Debug\Mpcdigitize.Ffmpeg.Wrapper.WinForm.Form2.resources

@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MpcDigitize.Wtv.FFprobe.Wrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MpcDigitize.Wtv.FFprobe.Wrapper\MpcDigitize.Wtv.FFprobe.Wrapper\bin\Debug\MpcDigitize.Wtv.FFprobe.Wrapper.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,7 +50,6 @@
     <Compile Include="Enums\RegexGroup.cs" />
     <Compile Include="Enums\RegexKey.cs" />
     <Compile Include="Enums\Streams.cs" />
-    <Compile Include="ErrorEventArgs.cs" />
     <Compile Include="ExitedEventArgs.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="EncodingEngine.cs" />
