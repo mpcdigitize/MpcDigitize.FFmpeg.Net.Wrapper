@@ -29,12 +29,13 @@ namespace ConsoleApplication
 
             var inputFile = @"C:\input\testWTVShort.wtv";
             //  var outputFile = @"C:\videos\testConvert_3.mkv";
-            var outputFile = @"C:\videos\testConvert_13.mkv";
+            var outputFile = @"C:\videos\testConvert_14.mkv";
+           // var outputFile = @"C:\videos\thumbs\testConvert_15.jpg";
 
 
-
-            job.Arguments = vargs.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
-           // job.Arguments = vargs.Copy(inputFile, Streams.AllStreams, outputFile);
+             job.Arguments = vargs.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
+            // job.Arguments = vargs.Copy(inputFile, Streams.AllStreams, outputFile);
+            //job.Arguments = vargs.GetFrame(inputFile, 15, FrameSize.SizeThumbnail, outputFile);
 
             string title = "My conversion test file";
 
