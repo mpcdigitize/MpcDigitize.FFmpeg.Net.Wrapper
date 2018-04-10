@@ -18,7 +18,7 @@ namespace ConsoleApplication
       
 
 
-            var inputFile = @"C:\input\testFile.wtv";
+            var inputFile = @"C:\input\test File.wtv";
             var outputFile = @"C:\videos\testConvert.mkv";
 
 

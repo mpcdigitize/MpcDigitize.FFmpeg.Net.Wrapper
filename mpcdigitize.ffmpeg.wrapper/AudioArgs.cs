@@ -21,7 +21,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         public string Convert(string inputFile, AudioEncoder audioEncoder, Bitrate audioBitrate, string outputFile)
         {
 
-            var arguments = "-i " + inputFile +
+            var arguments = "-i " + "\"" + inputFile + "\"" +
                             " -v quiet -stats " +
                             _arguments.GetValue(audioEncoder.ToString()) +
                             _arguments.GetValue(audioBitrate.ToString()) +
@@ -36,7 +36,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         public string Capture(string inputFile, string outputFile)
         {
             
-            var arguments = "-i " + inputFile +
+            var arguments = "-i " + "\"" + inputFile + "\"" +
                             " -y " + outputFile;
 
             return arguments;
@@ -46,7 +46,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         public string Capture(string inputFile,int durationInSeconds, string outputFile)
         {
             
-            var arguments = "-i " + inputFile +
+            var arguments = "-i " + "\"" + inputFile + "\"" +
                             " -c copy" +
                             " -t " + durationInSeconds +
                             outputFile;

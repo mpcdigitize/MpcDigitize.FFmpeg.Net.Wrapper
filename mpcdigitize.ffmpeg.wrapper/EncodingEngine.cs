@@ -41,6 +41,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
            
             this._process.EnableRaisingEvents = true;    
             this._process.ErrorDataReceived += new DataReceivedEventHandler(this.GetStandardErrorDataReceived);
+           // this._process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(OutputDataReceived);
 
             this._process.StartInfo.FileName = _encoderPath;
             this._process.StartInfo.Arguments = encodingJob.Arguments;
@@ -54,6 +55,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
             this._process.Start();
             this._process.BeginErrorReadLine();
+           // this._process.BeginOutputReadLine();
     
 
             this._process.WaitForExit();
@@ -117,6 +119,12 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
 
         }
+
+        public void OutputDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            // Console.WriteLine(e.Data + "\n");
+        }
+
 
 
     }

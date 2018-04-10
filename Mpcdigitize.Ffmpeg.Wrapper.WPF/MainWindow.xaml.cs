@@ -67,8 +67,9 @@ namespace Mpcdigitize.Ffmpeg.Wrapper.WPF
             var args = new VideoArgs();
 
 
-            var inputFile = @"C:\input\testFile.wtv";
-            var outputFile = @"C:\videos\testConvert.mkv";
+            var inputFile = @"\""C:\input\test File.wtv";
+            
+            var outputFile = @"C:\videos\testConvert0.mkv";
             job.Arguments = args.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p, VideoPreset.VeryFast, ConstantRateFactor.CrfNormal, AudioCodec.Ac3, outputFile);
 
 

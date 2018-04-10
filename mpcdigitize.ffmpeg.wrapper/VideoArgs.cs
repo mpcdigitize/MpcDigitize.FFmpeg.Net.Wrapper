@@ -22,7 +22,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
-            var arguments = "-i " + inputFile +
+            var arguments = "-i " + "\"" + inputFile + "\"" +
                             " -v quiet -stats " +
                             _arguments.GetValue(videoResize.ToString()) +
                             _arguments.GetValue(videoEncoder.ToString()) +
@@ -49,7 +49,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac
 
            
-              var arguments = "-i " + inputFile +
+              var arguments = "-i " + "\"" + inputFile + "\"" +
                             " -v quiet -stats " +
                             _arguments.GetValue(videoResize.ToString()) +
                             _arguments.GetValue(videoEncoder.ToString()) +
@@ -71,7 +71,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         public string Copy(string inputFile, Streams streams, string outputFile)
         {
            
-              var arguments = "-i " + inputFile +
+              var arguments = "-i " + "\"" + inputFile + "\"" +
                                " -v quiet -stats " +
                                _arguments.GetValue(streams.ToString()) +
                                " -y " + outputFile;
@@ -90,8 +90,8 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
             //ffmpeg -ss 01:23:45 -i input -vframes 1 -q:v 2 output.jpg
 
             var arguments = " -v quiet -stats " +
-                            "-ss " + timeInSeconds + 
-                            " -i " + inputFile +
+                            "-ss " + timeInSeconds +
+                            " -i " + "\"" + inputFile + "\"" +
                             " -frames:v 1" +
                             _arguments.GetValue(frameSize.ToString()) +
                             " -q:v 2 " +
