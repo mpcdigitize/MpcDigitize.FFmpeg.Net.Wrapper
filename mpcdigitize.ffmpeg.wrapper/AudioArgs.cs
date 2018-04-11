@@ -37,7 +37,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
         {
             
             var arguments = "-i " + "\"" + inputFile + "\"" +
-                            " -y " + outputFile;
+                            " -y " + "\"" + outputFile + "\"";
 
             return arguments;
         }
@@ -49,7 +49,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
             var arguments = "-i " + "\"" + inputFile + "\"" +
                             " -c copy" +
                             " -t " + durationInSeconds +
-                            outputFile;
+                            " -y " + "\"" + outputFile + "\"";
 
             return arguments;
 

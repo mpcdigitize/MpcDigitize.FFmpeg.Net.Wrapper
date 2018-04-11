@@ -30,9 +30,9 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
                             _arguments.GetValue(videoConstantRateFactor.ToString()) +
                             _arguments.GetValue(audioCodec.ToString()) +
                             _arguments.GetValue(audioBitrate.ToString()) +
-                            " -y " + outputFile;
+                            " -y " + "\"" + outputFile + "\"";
 
-           
+
 
 
             return arguments;
@@ -56,7 +56,7 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
                             _arguments.GetValue(videoPreset.ToString()) +
                             _arguments.GetValue(videoConstantRateFactor.ToString()) +
                             _arguments.GetValue(audioCodec.ToString()) +
-                            " -y " + outputFile;
+                            " -y " + "\"" + outputFile + "\"";
 
             
 
@@ -74,9 +74,9 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
               var arguments = "-i " + "\"" + inputFile + "\"" +
                                " -v quiet -stats " +
                                _arguments.GetValue(streams.ToString()) +
-                               " -y " + outputFile;
-             
-             return arguments;
+                               " -y " + "\"" + outputFile + "\"";
+
+            return arguments;
 
          
 
@@ -95,11 +95,11 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
                             " -frames:v 1" +
                             _arguments.GetValue(frameSize.ToString()) +
                             " -q:v 2 " +
-                             "-y " + outputFile;
+                            " -y " + "\"" + outputFile + "\"";
 
-            
 
-         return arguments;
+
+            return arguments;
 
         }
 
