@@ -53,18 +53,30 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
             return arguments;
 
-        //    encodingEngine.StartEncoding(arguments, _programmPath);
+        }
 
 
+        public string Capture(string inputFile, int durationInSeconds, AudioEncoder audioEncoder, Bitrate audioBitrate, string outputFile)
+        {
+
+            var arguments = "-i " + "\"" + inputFile + "\"" +
+                            " -c copy" +
+                            " -t " + durationInSeconds +
+                            _arguments.GetValue(audioEncoder.ToString()) +
+                            _arguments.GetValue(audioBitrate.ToString()) +
+                            " -y " + "\"" + outputFile + "\"";
+
+            return arguments;
 
         }
 
 
-        
 
 
 
-     
+
+
+
     }
 }
 

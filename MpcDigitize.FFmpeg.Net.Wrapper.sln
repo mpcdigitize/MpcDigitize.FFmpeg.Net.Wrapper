@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MpcDigitize.FFmpeg.Net.Wrapper", "mpcdigitize.ffmpeg.wrapper\MpcDigitize.FFmpeg.Net.Wrapper.csproj", "{8402BC85-950C-437D-A61E-412B67DDEA1A}"
 EndProject
@@ -36,5 +36,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A13AE2E-BA29-4C39-A4F9-06CAB7A36F9D}
 	EndGlobalSection
 EndGlobal

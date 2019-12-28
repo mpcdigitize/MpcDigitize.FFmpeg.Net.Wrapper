@@ -18,7 +18,9 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
       
         }
     
-        public string Convert(string inputFile,VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, ConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, Bitrate audioBitrate, string outputFile)
+        public string Convert(string inputFile,VideoEncoder videoEncoder, VideoResize videoResize,
+                            VideoPreset videoPreset, ConstantRateFactor videoConstantRateFactor,
+                            AudioCodec audioCodec, Bitrate audioBitrate, string outputFile)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac -b:a 160k
 
@@ -44,7 +46,9 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
 
 
-        public string Convert(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize, VideoPreset videoPreset, ConstantRateFactor videoConstantRateFactor, AudioCodec audioCodec, string outputFile)
+        public string Convert(string inputFile, VideoEncoder videoEncoder, VideoResize videoResize,
+                                    VideoPreset videoPreset, ConstantRateFactor videoConstantRateFactor,
+                                    AudioCodec audioCodec, string outputFile)
         {
             //-vf scale=-1:720 -c:v libx264 -preset veryfast -crf 23 -c:a aac
 
@@ -82,9 +86,25 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
 
         }
-        
-        
-        
+
+
+        public string ExtractStream(string inputFile, Streams streams, string outputFile)
+        {
+
+            var arguments = "-i " + "\"" + inputFile + "\"" +
+                             " -v quiet -stats " +
+                             _arguments.GetValue(streams.ToString()) +
+                             " -y " + "\"" + outputFile + "\"";
+
+            return arguments;
+
+
+
+
+        }
+
+
+
         public string GetFrame(string inputFile, int timeInSeconds,FrameSize frameSize, string outputFile)
         {
             //ffmpeg -ss 01:23:45 -i input -vframes 1 -q:v 2 output.jpg
