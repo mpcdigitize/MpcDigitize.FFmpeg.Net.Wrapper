@@ -93,6 +93,8 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
             _arguments.Add("VideoStream", " -ac -c copy ");
             _arguments.Add("AllStreams", " -c copy ");
 
+            //-codec:a:1
+
         }
 
 
