@@ -23,7 +23,8 @@ namespace ConsoleApplication
             //var outputFile = @"C:\videos\test Convert1.mkv";
             //var outputFile = @"C:\videos\testConvert1 thumb.jpg";
             //var audioOutputFile = @"C:\videos\testMp3.mp3";
-            var outputFile = @"C:\videos\test_AudioAc3.ac3";
+            //var outputFile = @"C:\videos\test_ExtractedAudioAc3.ac3";
+            var outputFile = @"C:\videos\test_ExtractedVideoStream1.ts";
 
             //video convert
             //job.Arguments = videoArgs.Convert(inputFile,VideoEncoder.Libx264, VideoResize.TV720p,
@@ -45,9 +46,13 @@ namespace ConsoleApplication
 
 
             //extract audio stream from video
-            job.Arguments = videoArgs.ExtractStream(inputFile, Streams.AudioStream, outputFile);
+            //job.Arguments = videoArgs.ExtractStream(inputFile, Streams.AudioStream, outputFile);
 
 
+            //videoArgs.ShowInfo(inputFile);
+            job.Arguments = videoArgs.ExtractStream(inputFile, Streams.VideoStream1, outputFile);
+
+            //Console.WriteLine(videoArgs.ShowInfo(inputFile));
 
 
             string title = "My conversion test file";

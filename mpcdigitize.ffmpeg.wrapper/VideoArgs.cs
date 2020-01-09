@@ -125,11 +125,22 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
 
 
 
-    
-        
+        public string ShowInfo(string inputFile)
+        {
+
+            var arguments = "-i " + "\"" + inputFile + "\"" +
+                             " -v quiet -stats ";
+
+            return arguments;
 
 
 
-     
+
+        }
+
+
+
+
+
     }
 }

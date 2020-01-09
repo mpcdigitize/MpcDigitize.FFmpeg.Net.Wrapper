@@ -91,18 +91,18 @@ namespace MpcDigitize.FFmpeg.Net.Wrapper
             //Streams
             _arguments.Add("AudioStream", " -vn -c copy ");
             _arguments.Add("VideoStream", " -ac -c copy ");
-            _arguments.Add("AudioStream0", " -codec:a:0 ");
-            _arguments.Add("AudioStream1", " -codec:a:1 ");
-            _arguments.Add("AudioStream2", " -codec:a:2 ");
-            _arguments.Add("AudioStream3", " -codec:a:3 ");
-            _arguments.Add("AudioStream4", " -codec:a:4 ");
-            _arguments.Add("AudioStream5", " -codec:a:5 ");
-            _arguments.Add("VideoStream0", " -codec:v:0 ");
-            _arguments.Add("VideoStream1", " -codec:v:1 ");
-            _arguments.Add("VideoStream2", " -codec:v:2 ");
-            _arguments.Add("VideoStream3", " -codec:v:3 ");
-            _arguments.Add("VideoStream4", " -codec:v:4 ");
-            _arguments.Add("VideoStream5", " -codec:v:5 ");
+            _arguments.Add("AudioStream0", " -codec:a:0 copy ");
+            _arguments.Add("AudioStream1", " -codec:a:1 copy ");
+            _arguments.Add("AudioStream2", " -codec:a:2 copy ");
+            _arguments.Add("AudioStream3", " -codec:a:3 copy ");
+            _arguments.Add("AudioStream4", " -codec:a:4 copy ");
+            _arguments.Add("AudioStream5", " -codec:a:5 copy ");
+            _arguments.Add("VideoStream0", " -codec:v:0 copy ");
+            _arguments.Add("VideoStream1", " -codec:v:1 copy ");
+            _arguments.Add("VideoStream2", " -codec:v:2 copy ");
+            _arguments.Add("VideoStream3", " -codec:v:3 copy ");
+            _arguments.Add("VideoStream4", " -codec:v:4 copy ");
+            _arguments.Add("VideoStream5", " -codec:v:5 copy ");
 
             //-codec:a:1
 
