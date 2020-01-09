@@ -49,7 +49,6 @@
     <Compile Include="Enums\ConstantRateFactor.cs" />
     <Compile Include="Enums\RegexGroup.cs" />
     <Compile Include="Enums\RegexKey.cs" />
-    <Compile Include="Enums\StreamId.cs" />
     <Compile Include="Enums\Streams.cs" />
     <Compile Include="ExitedEventArgs.cs" />
     <Compile Include="Extensions\Extensions.cs" />
